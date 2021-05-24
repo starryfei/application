@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:gravity="right|bottom"
+    android:layout_height="match_parent">
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/menu_yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/colorPrimary"
+        fab:fab_colorPressed="@color/cardview_dark_background"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="30dp">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/open_door"
+            style="@style/MenuButtonsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tooltipText="@string/open_door"
+            fab:fab_label="@string/open_door"
+
+            android:src="@mipmap/icon" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/close_door"
+            style="@style/MenuButtonsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tooltipText="@string/close_door"
+            fab:fab_label="@string/close_door"
+            android:src="@mipmap/icon" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/sign_out_user"
+            style="@style/MenuButtonsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_label="@string/other"
+
+            android:tooltipText="@string/other"
+
+            android:src="@mipmap/icon" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</LinearLayout>

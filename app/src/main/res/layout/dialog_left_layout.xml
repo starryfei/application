@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dp"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical">
+
+        <com.xuexiang.xui.widget.imageview.RadiusImageView
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon"
+            app:riv_border_color="@color/xui_config_color_gray_6"
+            app:riv_border_width="0px"
+            app:riv_is_circle="false"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/mode_image"
+            app:riv_selected_border_color="@color/xui_config_color_gray_4"
+            app:riv_selected_border_width="1px"
+            app:riv_selected_mask_color="@color/xui_config_color_gray_8"/>
+
+        <TextView
+            android:id="@+id/des_text"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize = "none"
+            android:maxLines="100"
+            android:inputType="textMultiLine"
+            android:scrollHorizontally = "false"
+            android:text="这是自驾游模式。。。。。。。。。。。。。"
+             />
+
+
+</LinearLayout>

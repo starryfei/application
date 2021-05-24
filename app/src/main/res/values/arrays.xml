@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+    <string-array name="weight">
+        <item>40-50kg</item>
+        <item>50-60kg</item>
+        <item>60-70kg</item>
+        <item>70-80kg</item>
+        <item>80-90kg</item>
+    </string-array>
+
+
+    <string-array name="height">
+<!--        <item>130–140cm</item>-->
+        <item>140-150cm</item>
+        <item>150-160cm</item>
+        <item>160-170cm</item>
+        <item>170-180cm</item>
+        <item>180-190cm</item>
+        <item>190-200cm</item>
+<!--        <item>200-210cm</item>-->
+
+
+    </string-array>
+
+
+
+    <!--  修改这里的图标  -->
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+        <item>其他</item>
+    </string-array>
+    <string-array name="age">
+        <item>10-20岁</item>
+        <item>20-30岁</item>
+        <item>30-40岁</item>
+        <item>40-50岁</item>
+        <item>50-60岁</item>
+        <item>60-70岁</item>
+
+
+
+    </string-array>
+    <string-array name="meet_name">
+        <item>会议1</item>
+        <item>会议2</item>
+        <item>会议3</item>
+    </string-array>
+
+    <string-array name="date_name">
+        <item>小明</item>
+        <item>小花</item>
+        <item>小风</item>
+    </string-array>
+
+    <string-array name="travel_name">
+        <item>总统府</item>
+        <item>钟山风景区</item>
+        <item>夫子庙秦淮风光</item>
+    </string-array>
+
+</resources>

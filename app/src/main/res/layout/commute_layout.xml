@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/commute_layout">
+
+    <include layout="@layout/dialog_left_layout"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="@string/data_user_text"
+
+            android:id="@+id/text">
+        </TextView>
+        <!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+        <!--        android:id="@+id/work_time"-->
+        <!--        style="@style/RoundButton.Auto"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_width="300dp"-->
+        <!--        android:layout_marginTop="10dp"-->
+        <!--        android:layout_marginRight="5dp"-->
+        <!--        android:layout_gravity="center"-->
+        <!--        android:text="@string/work_text" />-->
+        <!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+        <!--        android:id="@+id/date_time"-->
+        <!--        style="@style/RoundButton.Auto"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_width="300dp"-->
+        <!--        android:layout_marginTop="10dp"-->
+        <!--        android:layout_marginRight="5dp"-->
+        <!--        android:text="@string/date_text" />-->
+<!--        <com.xuexiang.xui.widget.spinner.editspinner.EditSpinner-->
+<!--            android:id="@+id/date_user"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            app:es_hint	="@string/data_user_text"-->
+<!--            app:es_entries="@array/date_name"/>-->
+        <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+            style="@style/Material.SpinnerStyle"
+
+            android:id="@+id/date_user"
+            android:layout_width="200dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            app:ms_entries="@array/date_name"/>
+    </LinearLayout>
+
+<!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--        style="@style/RoundButton.Auto"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginLeft="50dp"-->
+<!--        android:layout_marginRight="50dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:text="@string/start"-->
+<!--        android:id="@+id/commute_start"-->
+<!--        android:layout_gravity="bottom|center_horizontal" />-->
+</LinearLayout>

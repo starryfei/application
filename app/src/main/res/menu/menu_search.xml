@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search_view"
+        android:orderInCategory="1"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:title="搜索"
+        android:tooltipText="@string/search_tooltip"
+        app:queryHint="@string/search_tooltip"
+        app:showAsAction="always" />
+<!--    <item-->
+<!--        android:title="昵称排序"-->
+
+<!--        android:id="@+id/order_name"-->
+
+<!--        app:showAsAction="always" />-->
+<!--    <item-->
+<!--        android:title="其他"-->
+<!--        app:showAsAction="never" />-->
+        
+</menu>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="horizontal"
+    android:id="@+id/meeting_layout">
+
+    <include layout="@layout/dialog_left_layout"></include>
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_marginLeft="5dp"
+         android:layout_marginRight="10dp"
+         android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="@string/meet_name">
+
+        </TextView>
+<!--         <com.xuexiang.xui.widget.spinner.editspinner.EditSpinner-->
+<!--             android:id="@+id/meet_name"-->
+<!--             android:layout_width="wrap_content"-->
+<!--             android:layout_marginLeft="10dp"-->
+<!--             android:gravity="center"-->
+<!--             -->
+<!--             android:layout_height="wrap_content"-->
+<!--             android:textColor="@color/colorPrimary"-->
+<!--             android:textColorHint="@color/colorPrimary"-->
+<!--             app:es_hint="@string/meet_name"-->
+
+<!--             app:es_entries="@array/meet_name" />-->
+         <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+             style="@style/Material.SpinnerStyle"
+
+             android:id="@+id/meet_name"
+             android:layout_width="wrap_content"
+             android:layout_marginLeft="10dp"
+             android:gravity="center"
+             android:layout_height="wrap_content"
+             android:textColor="@color/colorPrimary"
+             android:textColorHint="@color/colorPrimary"
+             app:ms_entries="@array/meet_name"/>
+     </LinearLayout>
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="30dp"-->
+<!--        android:text="@string/meet_mode"-->
+
+<!--        android:id="@+id/text">-->
+<!--    </TextView>-->
+<!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--        android:id="@+id/meeting_time"-->
+<!--        style="@style/RoundButton.Auto"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="3dp"-->
+<!--        android:layout_width="300dp"-->
+
+<!--        android:text="@string/meet_text" />-->
+
+<!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--        style="@style/RoundButton.Auto"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginLeft="50dp"-->
+<!--        android:layout_marginRight="50dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:text="@string/start"-->
+<!--        android:id="@+id/meet_start"-->
+<!--        android:layout_gravity="bottom|center_horizontal" />-->
+
+</LinearLayout>

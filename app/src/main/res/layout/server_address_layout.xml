@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ECU服务器地址：">
+
+    </TextView>
+    <com.xuexiang.xui.widget.edittext.ValidatorEditText
+        style="@style/EditText.Normal"
+        android:layout_width="440dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="50dp"
+        android:singleLine="true"
+        android:id="@+id/ecu_server"
+        android:hint="请输入服务器地址" />
+    <com.xuexiang.xui.widget.edittext.ValidatorEditText
+        style="@style/EditText.Normal"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_height="50dp"
+        android:singleLine="true"
+        android:id="@+id/ecu_port"
+        android:hint="端口号" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NUC服务器地址：">
+
+        </TextView>
+        <com.xuexiang.xui.widget.edittext.ValidatorEditText
+            style="@style/EditText.Normal"
+            android:layout_width="440dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:id="@+id/nuc_server"
+            android:singleLine="true"
+            android:hint="请输入服务器地址" />
+        <com.xuexiang.xui.widget.edittext.ValidatorEditText
+            style="@style/EditText.Normal"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:singleLine="true"
+            android:id="@+id/nuc_port"
+            android:hint="端口号" />
+    </LinearLayout>
+</LinearLayout>

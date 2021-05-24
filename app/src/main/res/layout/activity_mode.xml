@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/activity_bg"
+    tools:context=".activity.ModeActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabMaxWidth="0dp"
+        android:layout_marginTop="47dp"
+        app:tabIndicatorColor="#00FFFE"
+        app:tabSelectedTextColor="#00FFFE"
+        app:tabTextColor="@color/text_color"
+        app:tabIndicatorFullWidth="false"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        tools:ignore="MissingConstraints">
+
+    </com.google.android.material.tabs.TabLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <include layout="@layout/float_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_centerHorizontal='true'
+        android:id="@+id/user_layout"
+        tools:ignore="MissingConstraints">
+
+        <com.xuexiang.xui.widget.imageview.RadiusImageView
+            android:clickable="false"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/icon"
+            app:riv_border_color="@color/xui_config_color_gray_6"
+            app:riv_border_width="1px"
+            app:riv_is_circle="true"
+            android:layout_gravity="center"
+            android:id="@+id/imageView"
+            app:riv_selected_border_color="@color/xui_config_color_gray_4"
+            app:riv_selected_border_width="1px"
+            app:riv_selected_mask_color="@color/xui_config_color_gray_8"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView"-->
+<!--            android:layout_width="500dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:src="@mipmap/icon"-->
+<!--            tools:srcCompat="@tools:sample/avatars" />-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="wrap_content">
+                    <com.xuexiang.xui.widget.edittext.ValidatorEditText
+                        style="@style/EditText.Normal"
+                        android:layout_width="385dp"
+                        android:layout_height="50dp"
+                        android:singleLine="true"
+                        android:hint="请输入您的昵称"
+                        android:fontFamily="@font/pingfang"
+                        app:met_iconLeft="@mipmap/icon"
+                        android:enabled="false"
+                        android:id="@+id/user_name"
+                        app:vet_errorMessage="不能为空"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+                        style="@style/Material.SpinnerStyle"
+                        android:layout_marginTop="5dp"
+
+                        android:id="@+id/sexSpinner"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sex_tooltip"
+                        android:fontFamily="@font/pingfang"
+                        app:ms_entries="@array/sex"/>
+
+                    <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+                        style="@style/Material.SpinnerStyle"
+                        android:id="@+id/heightSpinner"
+                        android:layout_width="190dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/pingfang"
+                        android:hint="@string/height_tooltip"
+                        android:layout_marginTop="5dp"
+
+                        app:ms_entries="@array/height" />
+                </LinearLayout>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="5dp"
+                   android:orientation="horizontal">
+                   <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+                       style="@style/Material.SpinnerStyle"
+                       android:id="@+id/ageSpinner"
+                       android:layout_width="190dp"
+                       android:layout_marginTop="5dp"
+                       android:fontFamily="@font/pingfang"
+                       android:layout_height="wrap_content"
+                       android:hint="@string/age_tooltip"
+                       app:ms_entries="@array/age"/>
+
+
+                   <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+                       style="@style/Material.SpinnerStyle"
+                       android:id="@+id/weightSpinner"
+                       android:layout_width="190dp"
+                       android:layout_marginTop="5dp"
+                       android:layout_marginLeft="5dp"
+                       android:layout_height="wrap_content"
+                       android:hint="@string/wight_tooltip"
+                       android:fontFamily="@font/pingfang"
+
+                       app:ms_entries="@array/weight"/>
+               </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

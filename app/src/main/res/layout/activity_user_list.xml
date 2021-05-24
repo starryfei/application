@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    tools:context=".activity.UserListActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+        app:popupTheme="@style/AppTheme.AppBarOverlay"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:gravity="left|center"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:src="@mipmap/back">
+            </ImageView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/text_color"
+                android:fontFamily="@font/pingfang"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:text="返回">
+
+            </TextView>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/compare_by_name"
+            android:text="昵称排序"
+            android:textSize="20sp"
+
+            android:fontFamily="@font/pingfang"
+            android:textColor="@color/text_color"
+            >
+
+        </TextView>
+
+        <!--    <androidx.appcompat.widget.SearchView-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:gravity="right"-->
+        <!--        android:id="@+id/search_user"-->
+        <!--        app:queryHint="@string/search_tooltip"-->
+        <!--        android:layout_height="wrap_content">-->
+    </androidx.appcompat.widget.Toolbar>
+<!--    <com.xuexiang.xui.widget.actionbar.TitleBar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:background="@color/xui_config_color_titlebar"-->
+<!--        app:tb_barHeight="40dp"-->
+<!--        app:tb_dividerColor="@color/xui_config_color_red"-->
+<!--        app:tb_leftImageResource="@color/white"-->
+<!--        app:tb_leftText="回退"-->
+<!--        android:id="@+id/title_bar"-->
+<!--        app:tb_sideTextPadding="20dp"-->
+<!--        app:tb_actionPadding="20dp"-->
+<!--        app:tb_subTitleText="用户列表"-->
+<!--        app:tb_titleText="用户列表" />-->
+<!--<LinearLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:layout_marginRight="10dp"-->
+<!--    android:orientation="vertical">-->
+
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:gravity="right"-->
+<!--        android:id="@+id/search_user"-->
+<!--        app:queryHint="@string/search_tooltip"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--    </androidx.appcompat.widget.SearchView>-->
+<!--</LinearLayout>-->
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#26355F"
+            android:accessibilityLiveRegion="none"
+            tools:layout_editor_absoluteX="151dp"
+            tools:layout_editor_absoluteY="59dp"
+            android:scrollbars="vertical"
+            tools:visibility="visible" />
+        <include layout="@layout/float_menu"></include>
+
+    </FrameLayout>
+
+</LinearLayout>

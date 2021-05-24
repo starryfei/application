@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#172751">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@mipmap/mode_bg"
+        android:id="@+id/linear"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <com.xuexiang.xui.widget.imageview.RadiusImageView
+            android:clickable="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:riv_border_color="@color/xui_config_color_gray_6"
+            app:riv_is_circle="false"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/mode_image"
+            app:riv_selected_border_color="@color/xui_config_color_gray_4"
+            app:riv_selected_mask_color="@color/xui_config_color_gray_8"/>
+
+        <TextView
+            android:id="@+id/pager_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/pingfang"
+            android:gravity="center_horizontal"
+
+            android:textColor="@color/text_color"
+            android:textSize="20dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

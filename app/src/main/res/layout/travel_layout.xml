@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="horizontal"
+    android:id="@+id/travel_layout">
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textSize="30dp"-->
+<!--        android:text="@string/travel_mode"-->
+
+<!--        android:id="@+id/text">-->
+<!--    </TextView>-->
+<!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--        android:id="@+id/travel_time"-->
+<!--        style="@style/RoundButton.Auto"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="320dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:text="@string/travel_time" />-->
+    <include layout="@layout/dialog_left_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="@string/travel_text">
+
+        </TextView>
+        <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+            style="@style/Material.SpinnerStyle"
+            android:id="@+id/travel_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="#363D64"
+            android:hint="@string/travel_text"
+            android:gravity="center"
+            app:ms_entries="@array/travel_name" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:orientation="horizontal">-->
+<!--            <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--                android:id="@+id/first_btn"-->
+<!--                style="@style/RoundButton.Green"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:layout_marginRight="5dp"-->
+<!--                android:layout_gravity="left|top"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/travel1" />-->
+<!--            <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--                android:id="@+id/second_btn"-->
+<!--                style="@style/RoundButton.Gray"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:layout_marginRight="5dp"-->
+<!--                android:layout_gravity="left|top"-->
+<!--                android:clickable="false"-->
+<!--                android:layout_weight="1"-->
+<!--                android:text="@string/travel2" />-->
+<!--            <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--                android:id="@+id/three_btn"-->
+<!--                style="@style/RoundButton.Gray"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:layout_marginRight="5dp"-->
+<!--                android:layout_gravity="left|top"-->
+<!--                android:clickable="false"-->
+<!--                android:layout_weight="1"-->
+
+<!--                android:text="@string/travel3" />-->
+
+<!--        </LinearLayout>-->
+    </LinearLayout>
+<!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
+<!--        style="@style/RoundButton.Auto"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:text="@string/start"-->
+<!--        android:id="@+id/travel_start"-->
+<!--        android:layout_gravity="bottom" />-->
+</LinearLayout>

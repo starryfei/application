@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/activity_bg"
+    tools:context=".activity.ExperienceActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+<!--    <com.xuexiang.xui.widget.textview.MarqueeTextView-->
+<!--        android:id="@+id/tv_marquee"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:background="#88dddddd"-->
+<!--        app:mtv_isAutoFit="true"-->
+<!--        app:mtv_isAutoDisplay="true"/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:text="@string/experience_text"
+        android:fontFamily="@font/pingfang"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:gravity="center_horizontal"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+    <com.xuexiang.xui.widget.imageview.RadiusImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        app:riv_border_color="@color/xui_config_color_gray_6"
+        app:riv_border_width="0px"
+        app:riv_is_circle="false"
+        app:riv_selected_border_color="@color/xui_config_color_gray_4"
+        app:riv_selected_border_width="0px"
+        app:riv_corner_radius="25dp"
+        android:id="@+id/express_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:riv_selected_mask_color="@color/xui_config_color_gray_8"/>
+    <com.xuexiang.xui.widget.button.roundbutton.RoundButton
+        style="@style/RoundButton.Auto"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="300dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:text="@string/sign_out"
+        android:fontFamily="@font/pingfang"
+        android:id="@+id/sign_out_btn"
+        android:layout_gravity="bottom|center_horizontal" />
+</LinearLayout>
+    <include layout="@layout/float_menu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
