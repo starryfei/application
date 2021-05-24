@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:gravity="center"
+            android:fontFamily="@font/pingfang"
             android:text="@string/meet_name">
 
         </TextView>
@@ -46,6 +47,7 @@
              android:gravity="center"
              android:layout_height="wrap_content"
              android:textColor="@color/colorPrimary"
+             android:fontFamily="@font/pingfang"
              android:textColorHint="@color/colorPrimary"
              app:ms_entries="@array/meet_name"/>
      </LinearLayout>

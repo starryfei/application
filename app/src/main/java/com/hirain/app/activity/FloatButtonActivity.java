@@ -7,6 +7,12 @@ import com.hirain.app.util.DialogUtil;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+import static com.hirain.app.common.CommandConstants.CLOSE_DOOR_COMMAND;
+import static com.hirain.app.common.CommandConstants.DRIVER_CHECK_COMMAND;
+import static com.hirain.app.common.CommandConstants.OPEN_DOOR_COMMAND;
+import static com.hirain.app.common.CommandConstants.TIRED_COMMAND;
+import static com.hirain.app.common.CommandConstants.VOICE_COMMAND;
+
 public class FloatButtonActivity extends BaseActivity{
 
     @BindView(R.id.open_door)
@@ -26,12 +32,12 @@ public class FloatButtonActivity extends BaseActivity{
 
     @OnClick(R.id.open_door)
     public void openDoor() {
-        DialogUtil.openDoor(this);
+        DialogUtil.commonDialog(this,"是否打开车门", OPEN_DOOR_COMMAND);
     }
 
     @OnClick(R.id.close_door)
     public void closeDoor() {
-        DialogUtil.closeDoor(this);
+        DialogUtil.commonDialog(this,"是否关闭车门", CLOSE_DOOR_COMMAND);
     }
     @OnClick(R.id.sign_out_user)
     public void signOutUser() {
@@ -39,14 +45,14 @@ public class FloatButtonActivity extends BaseActivity{
     }
     @OnClick(R.id.check)
     public void check(){
-        DialogUtil.check(this);
+        DialogUtil.commonDialog(this,"是否开启乘员健康检测", DRIVER_CHECK_COMMAND);
     }
     @OnClick(R.id.voice)
     public void voice(){
-        DialogUtil.voice(this);
+        DialogUtil.commonDialog(this,"是否开启唇音融合", VOICE_COMMAND);
     }
     @OnClick(R.id.tired)
     public void tireBtn(){
-        DialogUtil.tired(this);
+        DialogUtil.commonDialog(this,"是否开启疲劳检测", TIRED_COMMAND);
     }
 }

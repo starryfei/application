@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -24,6 +25,9 @@ import com.xuexiang.xui.widget.dialog.MiniLoadingDialog;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +50,6 @@ public class UserListActivity extends FloatButtonActivity {
     private ArrayList<User> users;
     private UserListActivity userListActivity;
     boolean isSoft = false;
-//    private SortedList<User> userSortedList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,24 +64,21 @@ public class UserListActivity extends FloatButtonActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-//        createList();
-//        LoadUserAsyncTask asyncTask = new LoadUserAsyncTask();
-//        asyncTask.execute("");
-//        new Thread(()->{
-//            try {
-//                asyncTask.get(10, TimeUnit.SECONDS);
-//            } catch (ExecutionException | InterruptedException e) {
+        LoadUserAsyncTask asyncTask = new LoadUserAsyncTask();
+        asyncTask.execute("");
+        new Thread(()->{
+            try {
+                asyncTask.get(10, TimeUnit.SECONDS);
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            } catch (TimeoutException e) {
 //                e.printStackTrace();
-//            } catch (TimeoutException e) {
-////                e.printStackTrace();
-//                asyncTask.getmMiniLoadingDialog().cancel();
-//                Toast.makeText(userListActivity, "请求超时", Toast.LENGTH_LONG).show();
-//
-//            }
-//        }).start();
+                asyncTask.getmMiniLoadingDialog().cancel();
+                Toast.makeText(userListActivity, "请求超时", Toast.LENGTH_LONG).show();
 
-       // createList();
-//        userSortedList = new SortedList<>(User.class,new SortCallBack(adapter));
+            }
+        }).start();
+
 
 
 

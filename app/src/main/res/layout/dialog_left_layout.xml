@@ -27,9 +27,9 @@
             android:layout_height="wrap_content"
             android:ellipsize = "none"
             android:maxLines="100"
+            android:fontFamily="@font/pingfang"
             android:inputType="textMultiLine"
             android:scrollHorizontally = "false"
-            android:text="这是自驾游模式。。。。。。。。。。。。。"
              />
 
 

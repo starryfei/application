@@ -68,6 +68,7 @@
                     android:layout_marginRight="50dp"
                     android:layout_marginTop="100dp"
                     android:gravity="center"
+                    android:fontFamily="@font/pingfang"
                     android:layout_gravity="center|top"
                     android:text="@string/start" />
 <!--            </LinearLayout>-->

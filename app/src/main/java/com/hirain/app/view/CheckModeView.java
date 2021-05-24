@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.hirain.app.R;
 import com.hirain.app.activity.ExperienceActivity;
 import com.hirain.app.task.SendMessageTask;
+import com.hirain.app.util.DialogUtil;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 
@@ -20,6 +21,7 @@ import static com.hirain.app.common.Constants.CHECK_LIST;
 
 public class CheckModeView implements DynamicView {
     private Context context;
+
     public CheckModeView(Context context) {
         this.context = context;
     }
@@ -28,20 +30,15 @@ public class CheckModeView implements DynamicView {
     public void show(int index) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View inflate = layoutInflater.inflate(R.layout.common_layout, null, false);
-        LinearLayout ly = (LinearLayout) inflate.findViewById(R.id.common_layout);
+        LinearLayout ly = inflate.findViewById(R.id.common_layout);
         TextView text = ly.findViewById(R.id.des_text);
         ImageView imageView = ly.findViewById(R.id.mode_image);
-        imageView.setImageResource(R.drawable.check2+index);
+        imageView.setImageResource(R.drawable.check2 + index);
         text.setText("hhhhhh");
-        if(index == 5){
-            new MaterialDialog.Builder(context)
-                    .content("敬请期待")
-                    .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
-                    .negativeColorRes(R.color.dialog_cancel_color)
-                    .positiveText("确定").backgroundColorRes(R.color.dialog_color)
-                    .show();
+        if (index == 5) {
+            DialogUtil.messageDialog(context,"敬请期待");
         } else {
-            MaterialDialog show = new MaterialDialog.Builder(context)
+            new MaterialDialog.Builder(context)
                     .customView(inflate, true)
                     .title(CHECK_LIST.get(index)).titleGravity(GravityEnum.CENTER)
                     .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
@@ -49,25 +46,25 @@ public class CheckModeView implements DynamicView {
                     .positiveText(R.string.lab_submit).backgroundColorRes(R.color.dialog_color)
 
                     .negativeText(R.string.lab_cancel).onPositive((dialog, which) -> {
-                        String command = "{\n" +
-                                    "    \"command\":\"function" + (index+3)+"\""+
-                                    "}";
-                            new SendMessageTask(message -> {
-                                if(parseMessage(context, message)) {
-                                    Intent intent = new Intent(context, ExperienceActivity.class);
-                                    intent.putExtra("image", R.drawable.check2 +index);
-                                    context.startActivity(intent);
-                                }
+                String command = "{\n" +
+                        "    \"command\":\"function" + (index + 3) + "\"" +
+                        "}";
+                new SendMessageTask(message -> {
+                    if (parseMessage(context, message)) {
+                        Intent intent = new Intent(context, ExperienceActivity.class);
+                        intent.putExtra("image", R.drawable.check2 + index);
+                        context.startActivity(intent);
+                    }
 
-                            }).execute(command);
+                }).execute(command);
 
-                        Log.d(APP_LOG,command);
+                Log.d(APP_LOG, command);
 
 
 //                        Intent intent = new Intent(context, ExperienceActivity.class);
 //                        context.startActivity(intent);
 
-                    }).show();
+            }).show();
 //            Window dialogWindow = show.getWindow();
 //            WindowManager m = dialogWindow.getWindowManager();
 //            // 获取屏幕宽、高度
@@ -95,7 +92,6 @@ public class CheckModeView implements DynamicView {
 
 
     }
-
 
 
 }

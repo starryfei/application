@@ -48,6 +48,7 @@
             android:layout_marginLeft="50dp"
             android:text="@string/voice_text"
             android:id="@+id/voice_input_btn"
+            android:fontFamily="@font/pingfang"
             android:layout_gravity="bottom|center_horizontal" />
         <com.xuexiang.xui.widget.button.roundbutton.RoundButton
             style="@style/RoundButton.Auto"
@@ -56,6 +57,7 @@
             android:layout_width="300dp"
             android:layout_marginRight="50dp"
             android:layout_marginLeft="50dp"
+            android:fontFamily="@font/pingfang"
             android:text="@string/sign_out"
             android:id="@+id/exit_btn"
             android:layout_gravity="bottom|center_horizontal" />

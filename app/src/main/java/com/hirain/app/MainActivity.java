@@ -2,7 +2,9 @@ package com.hirain.app;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -22,6 +24,7 @@ import com.hirain.app.activity.BaseActivity;
 import com.hirain.app.activity.ModeActivity;
 import com.hirain.app.activity.UserListActivity;
 import com.hirain.app.entity.User;
+import com.hirain.app.task.NucMessageThread;
 import com.hirain.app.util.ImageBase64Utils;
 import com.hirain.app.util.SpeakerUtil;
 import com.hirain.app.util.TimeUtil;
@@ -53,8 +56,6 @@ import static com.hirain.app.common.Constants.WEIGHT_INPUTS;
 import static com.hirain.app.util.NetwrokUtil.isNetworkAvailable;
 
 public class MainActivity extends BaseActivity {
-//    private ZmqEcuClient zmqEcuClient = ZmqEcuClient.getInstance();
-//    private ZmqEcuSubClient subClient = ZmqEcuSubClient.getInstance();
     private NucPubSubServer nucServer = NucPubSubServer.getInstance();
     private static final int REQUEST_IMAGE_CAPTURE = 0X1;
     @BindView(R.id.button)
@@ -74,7 +75,6 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.user_name)
     ValidatorEditText userNameEdit;
-//    private NetWorkStateReceiver netWorkStateReceiver;
     private  String currentPhotoPath;
 
     @Override
@@ -84,8 +84,6 @@ public class MainActivity extends BaseActivity {
         }
         super.onStart();
 
-//        zmqEcuClient.start();
-//        subClient.start();
         nucServer.initServer();
         //讯飞调试日志开启
 //        Setting.setShowLog(true);
@@ -99,10 +97,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        zmqEcuClient.stop();
-//        subClient.stop();
-//        nucServer.stop();
-//        SpeakerUtil.onDestroy();
     }
 
     @Override
@@ -128,36 +122,35 @@ public class MainActivity extends BaseActivity {
             Log.d(APP_LOG, s);
             //
 
-            Intent intent = new Intent(this, ModeActivity.class);
-            startActivity(intent);
-//            NucMessageThread nucMessageThread = new NucMessageThread();
-//            nucMessageThread.sendMessage(s);
-//
-//            nucMessageThread.recvMessage(message -> {
-//              //  parseUser(message);
-//                JSONObject object = JSONObject.parseObject(message);
-//                String status = object.getString("status");
-//                Context applicationContext = getApplicationContext();
-//                if(StringUtils.equalsIgnoreCase(status,"success")) {
-//                    //Toast.makeText(applicationContext, "注册成功！", Toast.LENGTH_LONG).show();
-//                    SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
-//                    editor.putString("account", user.getName());
-//                    editor.commit();//提交修改
-//
-//                    Intent intent = new Intent(applicationContext, ModeActivity.class);
-//                    startActivity(intent);
-//                } else if(StringUtils.equalsIgnoreCase(status,"exist")){
-//                    Toast.makeText(applicationContext, "用户已经存在！", Toast.LENGTH_LONG).show();
-//                } else {
-//                    Toast.makeText(applicationContext, status, Toast.LENGTH_LONG).show();
-//                }
-//            },"register");
-//
-//        } else {
-//                Toast.makeText(this, "请输入用户昵称", Toast.LENGTH_LONG).show();
-//
-//        }
+//            Intent intent = new Intent(this, ModeActivity.class);
+//            startActivity(intent);
+            NucMessageThread nucMessageThread = new NucMessageThread();
+            nucMessageThread.sendMessage(s);
+
+            nucMessageThread.recvMessage(message -> {
+              //  parseUser(message);
+                JSONObject object = JSONObject.parseObject(message);
+                String status = object.getString("status");
+                Context applicationContext = getApplicationContext();
+                if(StringUtils.equalsIgnoreCase(status,"success")) {
+                    //Toast.makeText(applicationContext, "注册成功！", Toast.LENGTH_LONG).show();
+                    SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
+                    editor.putString("account", user.getName());
+                    editor.commit();//提交修改
+
+                    Intent intent = new Intent(applicationContext, ModeActivity.class);
+                    startActivity(intent);
+                } else if(StringUtils.equalsIgnoreCase(status,"exist")){
+                    Toast.makeText(applicationContext, "用户已经存在！", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(applicationContext, status, Toast.LENGTH_LONG).show();
+                }
+            },"register");
+
+        } else {
+                Toast.makeText(this, "请输入用户昵称", Toast.LENGTH_LONG).show();
+
         }
     }
 

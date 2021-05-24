@@ -224,25 +224,6 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.SwipeV
                 NucMessageThread nucMessageThread = new NucMessageThread();
                 nucMessageThread.sendMessage(command);
                 remove(getAdapterPosition());
-//                nucMessageThread.recvMessage(message -> {
-//                    JSONObject jsonObject = JSONObject.parseObject(message);
-//                    String status = jsonObject.getString("status");
-//                    if (StringUtils.equalsIgnoreCase(status, "success")) {
-//                        remove(getAdapterPosition());
-//                    } else {
-//                        Log.d(APP_LOG, "delete failure");
-//                    }
-//                },"modify");
-//                new NucMessageTask(message -> {
-//                    JSONObject jsonObject = JSONObject.parseObject(message);
-//                    String status = jsonObject.getString("status");
-//                    if (StringUtils.equalsIgnoreCase(status, "success")) {
-//                        remove(getAdapterPosition());
-//                    } else {
-//                        Log.d(APP_LOG, "delete failure");
-//                    }
-//
-//                }).execute(command, "delete");
 
 
             }).negativeText("取消")

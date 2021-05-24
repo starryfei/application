@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.hirain.app.R;
 import com.hirain.app.activity.ExperienceActivity;
 import com.hirain.app.task.SendMessageTask;
+import com.hirain.app.util.DialogUtil;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
@@ -36,12 +37,8 @@ public class CommonView implements DynamicView {
         RadiusImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.mode0+index);
         if(index == 7){
-            new MaterialDialog.Builder(context)
-                    .content("敬请期待")
-                    .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
-                    .negativeColorRes(R.color.dialog_cancel_color)
-                    .positiveText("确定").backgroundColorRes(R.color.dialog_color)
-                    .show();
+            DialogUtil.messageDialog(context,"敬请期待");
+
         } else {
             MaterialDialog show = new MaterialDialog.Builder(context)
                     .customView(inflate, true)

@@ -29,13 +29,13 @@ public class Check1ModeView implements DynamicView {
     public void show(int index) {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View inflate = layoutInflater.inflate(R.layout.common_layout, null, false);
-        LinearLayout ly = (LinearLayout) inflate.findViewById(R.id.common_layout);
+        LinearLayout ly = inflate.findViewById(R.id.common_layout);
         TextView text = ly.findViewById(R.id.des_text);
         ImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.check0);
         text.setText("hhhhhh");
 
-        MaterialDialog show = new MaterialDialog.Builder(context)
+        new MaterialDialog.Builder(context)
                 .customView(inflate, true)
                 .title(CHECK_LIST.get(index)).titleGravity(GravityEnum.CENTER)
                 .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
@@ -43,25 +43,21 @@ public class Check1ModeView implements DynamicView {
                 .positiveText(R.string.lab_submit).backgroundColorRes(R.color.dialog_color)
 
                 .negativeText(R.string.lab_cancel).onPositive((dialog, which) -> {
-                    String command =  "{\n" +
-                                "    \"command\":\"function" + (index + 1) + "\"" +
-                                "}";
-                        new SendMessageTask(message -> {
-                            if (parseMessage(context, message)) {
-                                Intent intent = new Intent(context, ExperienceActivity.class);
-                                intent.putExtra("image", R.drawable.check0);
-                                context.startActivity(intent);
-                            }
+            String command = "{\n" +
+                    "    \"command\":\"function" + (index + 1) + "\"" +
+                    "}";
+            new SendMessageTask(message -> {
+                if (parseMessage(context, message)) {
+                    Intent intent = new Intent(context, ExperienceActivity.class);
+                    intent.putExtra("image", R.drawable.check0);
+                    context.startActivity(intent);
+                }
 
-                        }).execute(command);
+            }).execute(command);
 
-                    Log.d(APP_LOG, command);
+            Log.d(APP_LOG, command);
 
-
-//                        Intent intent = new Intent(context, ExperienceActivity.class);
-//                        context.startActivity(intent);
-
-                }).show();
+        }).show();
 //            Window dialogWindow = show.getWindow();
 //            WindowManager m = dialogWindow.getWindowManager();
 //            // 获取屏幕宽、高度

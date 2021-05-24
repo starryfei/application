@@ -31,17 +31,11 @@ import static com.hirain.app.common.Constants.APP_LOG;
 
 public class DialogUtil {
 
-    public static void openDoor(Context context) {
-
-
+    public static void commonDialog(Context context, String content, String command){
         new MaterialDialog.Builder(context)
-                .content("是否打开车门").titleGravity(GravityEnum.CENTER).backgroundColorRes(R.color.dialog_color)
+                .content(content).titleGravity(GravityEnum.CENTER).backgroundColorRes(R.color.dialog_color)
                 .positiveText("确定").onPositive((dialog, which) -> {
 
-            String command = "{\n" +
-                    "    \"command\":\"door\","+
-                    "    \"status\":\"open\""+
-                    "}";
             Log.d(APP_LOG,command);
 
             new SendMessageTask(message -> {
@@ -63,35 +57,15 @@ public class DialogUtil {
         }) .negativeText("取消").show();
     }
 
-    public static void closeDoor(Context context){
+    public static void messageDialog(Context context,String message) {
         new MaterialDialog.Builder(context)
-                .content("是否关闭车门").titleGravity(GravityEnum.CENTER)
-                .backgroundColorRes(R.color.dialog_color)
-                .positiveText("确定").onPositive((dialog, which) -> {
-            String command = "{\n" +
-                    "    \"command\":\"door\","+
-                    "    \"status\":\"close\""+
-                    "}";
-            Log.d(APP_LOG,command);
-
-            new SendMessageTask(message -> {
-                if(StringUtils.isNoneBlank(message)) {
-                    JSONObject parse = (JSONObject) JSONObject.parse(message);
-
-                    Log.d(APP_LOG, message);
-                    String status = parse.getString("status");
-                    if (StringUtils.equalsIgnoreCase(status, "success")) {
-                        toast(context,status);
-                    }
-                } else {
-                    toast(context, "connect server fail");
-
-                }
-
-            }).execute(command);
-
-        }) .negativeText("取消").show();
+                .content(message)
+                .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
+                .negativeColorRes(R.color.dialog_cancel_color)
+                .positiveText("确定").backgroundColorRes(R.color.dialog_color)
+                .show();
     }
+
 
     public static void signOutUser(Activity context) {
         new MaterialDialog.Builder(context)
@@ -106,92 +80,10 @@ public class DialogUtil {
             editor.clear();
         }) .negativeText("取消").show();
     }
-    public static void check(Activity context) {
-        new MaterialDialog.Builder(context)
-                .content("是否开启乘员健康检测").titleGravity(GravityEnum.CENTER)
-                .backgroundColorRes(R.color.dialog_color)
-                .positiveText("确定").onPositive((dialog, which) -> {
-            String command = "{\n" +
-                    "    \"command\":\"PWMStart\","+
-                    "    \"status\":\"start\""+
-                    "}";
-            Log.d(APP_LOG,command);
 
-            new SendMessageTask(message -> {
-                if(StringUtils.isNoneBlank(message)) {
-                    JSONObject parse = (JSONObject) JSONObject.parse(message);
 
-                    Log.d(APP_LOG, message);
-                    String status = parse.getString("status");
-                    if (StringUtils.equalsIgnoreCase(status, "success")) {
-                        toast(context,status);
-                    }
-                } else {
-                    toast(context, "connect server fail");
 
-                }
 
-            }).execute(command);
-        }) .negativeText("取消").show();
-    }
-
-    public static void voice(Activity context) {
-        new MaterialDialog.Builder(context)
-                .content("是否开启唇音融合").titleGravity(GravityEnum.CENTER)
-                .backgroundColorRes(R.color.dialog_color)
-                .positiveText("确定").onPositive((dialog, which) -> {
-            String command = "{\n" +
-                    "    \"command\":\"LipVoice\","+
-                    "    \"status\":\"start\""+
-                    "}";
-            Log.d(APP_LOG,command);
-
-            new SendMessageTask(message -> {
-                if(StringUtils.isNoneBlank(message)) {
-                    JSONObject parse = (JSONObject) JSONObject.parse(message);
-
-                    Log.d(APP_LOG, message);
-                    String status = parse.getString("status");
-                    if (StringUtils.equalsIgnoreCase(status, "success")) {
-                        toast(context,status);
-                    }
-                } else {
-                    toast(context, "connect server fail");
-
-                }
-
-            }).execute(command);
-        }) .negativeText("取消").show();
-    }
-
-    public static void tired(Activity context) {
-        new MaterialDialog.Builder(context)
-                .content("是否开启疲劳检测").titleGravity(GravityEnum.CENTER)
-                .backgroundColorRes(R.color.dialog_color)
-                .positiveText("确定").onPositive((dialog, which) -> {
-            String command = "{\n" +
-                    "    \"command\":\"tired\","+
-                    "    \"status\":\"start\""+
-                    "}";
-            Log.d(APP_LOG,command);
-
-            new SendMessageTask(message -> {
-                if(StringUtils.isNoneBlank(message)) {
-                    JSONObject parse = (JSONObject) JSONObject.parse(message);
-
-                    Log.d(APP_LOG, message);
-                    String status = parse.getString("status");
-                    if (StringUtils.equalsIgnoreCase(status, "success")) {
-                        toast(context,status);
-                    }
-                } else {
-                    toast(context, "connect server fail");
-
-                }
-
-            }).execute(command);
-        }) .negativeText("取消").show();
-    }
     public static void toast(Context context,String info){
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(() -> {

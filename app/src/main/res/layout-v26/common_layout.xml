@@ -37,6 +37,7 @@
        android:layout_height="wrap_content"
        android:ellipsize = "none"
        android:layout_marginLeft="30dp"
+       android:fontFamily="@font/pingfang"
        android:maxLines="100"
        android:inputType="textMultiLine"
        android:scrollHorizontally = "false"
