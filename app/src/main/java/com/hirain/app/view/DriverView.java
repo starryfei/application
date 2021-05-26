@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONObject;
 import com.hirain.app.R;
 import com.hirain.app.activity.VoiceActivity;
+import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.hirain.app.util.DialogUtil;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
@@ -37,7 +38,7 @@ public class DriverView implements DynamicView {
         View inflate = layoutInflater.inflate(R.layout.common_layout, null, false);
         LinearLayout ly = (LinearLayout) inflate.findViewById(R.id.common_layout);
         TextView text = ly.findViewById(R.id.des_text);
-        text.setText("hhhhhh");
+        text.setText(Constants.MODE_DESC.get(index));
         RadiusImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.mode6);
         new MaterialDialog.Builder(context)

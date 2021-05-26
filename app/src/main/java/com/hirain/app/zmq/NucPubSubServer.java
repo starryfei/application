@@ -70,7 +70,7 @@ public class NucPubSubServer {
                 String res = jsonObject.getString("command");
                 if (StringUtils.equalsIgnoreCase(res, command)) {
                     messageListener.messageListener(s);
-                    break;
+                    return;
 
                 }
             }

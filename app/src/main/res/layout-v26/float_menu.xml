@@ -24,7 +24,7 @@
             android:fontFamily="@font/pingfang"
             fab:fab_label="疲劳检测"
 
-            android:src="@drawable/open" />
+            android:src="@drawable/tired" />
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/voice"
             style="@style/MenuButtonsStyle"
@@ -35,7 +35,7 @@
 
             fab:fab_label="唇音融合"
 
-            android:src="@drawable/open" />
+            android:src="@drawable/voice" />
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/check"
             style="@style/MenuButtonsStyle"
@@ -57,7 +57,7 @@
 
             fab:fab_label="@string/open_door"
 
-            android:src="@drawable/open" />
+            android:src="@drawable/open_door" />
 
 
         <com.github.clans.fab.FloatingActionButton
@@ -73,7 +73,7 @@
             fab:fab_colorRipple="@color/white"
             android:background="@color/text_color"
 
-            android:src="@drawable/open" />
+            android:src="@drawable/close_door" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/sign_out_user"

@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.hirain.app.R;
 import com.hirain.app.activity.ExperienceActivity;
+import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
-import com.hirain.app.util.DialogUtil;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 
@@ -34,10 +34,15 @@ public class CheckModeView implements DynamicView {
         TextView text = ly.findViewById(R.id.des_text);
         ImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.check2 + index);
-        text.setText("hhhhhh");
         if (index == 5) {
-            DialogUtil.messageDialog(context,"敬请期待");
+            new MaterialDialog.Builder(context)
+                    .content("敬请期待")
+                    .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
+                    .negativeColorRes(R.color.dialog_cancel_color)
+                    .positiveText("确定").backgroundColorRes(R.color.dialog_color)
+                    .show();
         } else {
+            text.setText(Constants.CHECK_DESC.get(index));
             new MaterialDialog.Builder(context)
                     .customView(inflate, true)
                     .title(CHECK_LIST.get(index)).titleGravity(GravityEnum.CENTER)

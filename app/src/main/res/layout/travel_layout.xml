@@ -8,53 +8,52 @@
     android:layout_marginRight="5dp"
     android:orientation="horizontal"
     android:id="@+id/travel_layout">
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:textSize="30dp"-->
-<!--        android:text="@string/travel_mode"-->
 
-<!--        android:id="@+id/text">-->
-<!--    </TextView>-->
-<!--    <com.xuexiang.xui.widget.button.roundbutton.RoundButton-->
-<!--        android:id="@+id/travel_time"-->
-<!--        style="@style/RoundButton.Auto"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_width="320dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginRight="5dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:text="@string/travel_time" />-->
     <include layout="@layout/dialog_left_layout"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:fontFamily="@font/pingfang"
-            android:text="@string/travel_text">
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/pingfang"
+                android:text="@string/travel_text">
 
-        </TextView>
-        <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
-            style="@style/Material.SpinnerStyle"
-            android:id="@+id/travel_spinner"
+            </TextView>
+            <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
+                style="@style/Material.SpinnerStyle"
+                android:id="@+id/travel_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:hint="@string/travel_text"
+                android:fontFamily="@font/pingfang"
+                app:ms_entries="@array/travel_name" />
+    </LinearLayout>
+        <TextView
+            android:id="@+id/des_text"
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="#363D64"
-            android:hint="@string/travel_text"
+            android:ellipsize = "none"
+            android:maxLines="100"
             android:fontFamily="@font/pingfang"
-            android:gravity="center"
-            app:ms_entries="@array/travel_name" />
+            android:textColor="@color/white"
+            android:inputType="textMultiLine"
+            android:scrollHorizontally = "false"
+            />
+
+
 <!--        <LinearLayout-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->

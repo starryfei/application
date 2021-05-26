@@ -1,10 +1,13 @@
 package com.hirain.app.activity;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import com.hirain.app.R;
 import com.hirain.app.task.HealthThread;
@@ -16,6 +19,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.hirain.app.common.Constants.APP_LOG;
+
+@RequiresApi(api = Build.VERSION_CODES.Q)
 
 public class ExperienceActivity extends FloatButtonActivity {
     @BindView(R.id.sign_out_btn)

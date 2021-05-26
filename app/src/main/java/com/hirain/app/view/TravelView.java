@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.hirain.app.R;
 import com.hirain.app.activity.DriverActivity;
+import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.hirain.app.util.DialogUtil;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
@@ -37,7 +38,7 @@ public class TravelView implements DynamicView {
         View inflate = layoutInflater.inflate(R.layout.travel_layout, null);
         LinearLayout ly = (LinearLayout) inflate.findViewById(R.id.travel_layout);
         TextView text = ly.findViewById(R.id.des_text);
-        text.setText(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        text.setText(Constants.MODE_DESC.get(index));
         RadiusImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.mode2);
         MaterialSpinner spinner = ly.findViewById(R.id.travel_spinner);

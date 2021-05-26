@@ -11,46 +11,53 @@
     android:id="@+id/meeting_layout">
 
     <include layout="@layout/dialog_left_layout"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
      <LinearLayout
          android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:layout_marginLeft="5dp"
-         android:layout_marginRight="10dp"
+         android:layout_height="wrap_content"
          android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:gravity="center"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/pingfang"
+            android:textColor="@color/white"
             android:text="@string/meet_name">
 
         </TextView>
-<!--         <com.xuexiang.xui.widget.spinner.editspinner.EditSpinner-->
-<!--             android:id="@+id/meet_name"-->
-<!--             android:layout_width="wrap_content"-->
-<!--             android:layout_marginLeft="10dp"-->
-<!--             android:gravity="center"-->
-<!--             -->
-<!--             android:layout_height="wrap_content"-->
-<!--             android:textColor="@color/colorPrimary"-->
-<!--             android:textColorHint="@color/colorPrimary"-->
-<!--             app:es_hint="@string/meet_name"-->
 
-<!--             app:es_entries="@array/meet_name" />-->
          <com.xuexiang.xui.widget.spinner.materialspinner.MaterialSpinner
              style="@style/Material.SpinnerStyle"
-
              android:id="@+id/meet_name"
-             android:layout_width="wrap_content"
+             android:layout_width="match_parent"
              android:layout_marginLeft="10dp"
-             android:gravity="center"
+             android:layout_marginRight="25dp"
              android:layout_height="wrap_content"
              android:textColor="@color/colorPrimary"
              android:fontFamily="@font/pingfang"
              android:textColorHint="@color/colorPrimary"
              app:ms_entries="@array/meet_name"/>
      </LinearLayout>
+        <TextView
+            android:id="@+id/des_text"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize = "none"
+            android:maxLines="100"
+            android:fontFamily="@font/pingfang"
+            android:textColor="@color/white"
+            android:inputType="textMultiLine"
+            android:scrollHorizontally = "false"
+            />
+    </LinearLayout>
+
 <!--    <TextView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->

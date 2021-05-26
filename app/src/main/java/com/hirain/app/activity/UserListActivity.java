@@ -133,9 +133,7 @@ public class UserListActivity extends FloatButtonActivity {
                     "    \"command\": \"search\"\n" +
                     "}";
             nucServer.sendMessage(command);
-            nucServer.recvMessage(message -> {
-                parseUser(message);
-            },"search");
+            nucServer.recvMessage(UserListActivity.this::parseUser,"search");
             return null;
         }
 
@@ -180,16 +178,7 @@ public class UserListActivity extends FloatButtonActivity {
         //adapter.setUsers(users);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()){
-//            case R.id.order_name:
-//                Collections.sort(users);
-//                adapter.notifyDataSetChanged();
-//                break;
-//        }
-        return true;
-    }
+
     @OnClick(R.id.compare_by_name)
     public void onClickByName(){
         if (!isSoft) {

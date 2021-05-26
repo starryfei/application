@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.hirain.app.R;
 import com.hirain.app.activity.ExperienceActivity;
+import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
@@ -37,7 +38,7 @@ public class CommuteView implements DynamicView {
         TextView text = ly.findViewById(R.id.des_text);
         RadiusImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.mode0);
-        text.setText("hhhhhh");
+        text.setText(Constants.MODE_DESC.get(index));
         new MaterialDialog.Builder(context)
                 .customView(inflate, true)
                 .title(MODL_LIST.get(index)).titleGravity(GravityEnum.CENTER)

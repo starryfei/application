@@ -47,7 +47,7 @@ public class LostThread extends Thread{
         });
     }
     public void closeConnect(){
-        subClient.stop();
+//        subClient.stop();
         subClient.stopRecv();
     }
 }

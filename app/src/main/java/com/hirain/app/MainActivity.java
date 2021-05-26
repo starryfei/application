@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 
@@ -201,10 +203,15 @@ public class MainActivity extends BaseActivity {
     /**
      * 测试已有用户
      */
+    @RequiresApi(api = Build.VERSION_CODES.Q)
     @OnClick(R.id.exist_btn)
     public void existBtnClick(){
         Intent intent = new Intent(this, UserListActivity.class);
         startActivity(intent);
+//        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+//
+//        FileUtil.saveImage(this,"jun",bitmap);
+//        FileUtil.saveFile(this,"jun","ECM","aa","hhhhhhhhhhhhhh");
 
     }
     @SuppressLint("ResourceAsColor")
@@ -255,17 +262,6 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    //在onResume()方法注册
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    //onPause()方法注销
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
 
 
 

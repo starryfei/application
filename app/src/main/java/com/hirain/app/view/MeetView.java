@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.hirain.app.R;
 import com.hirain.app.activity.ExperienceActivity;
+import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
@@ -34,7 +35,7 @@ public class MeetView implements DynamicView {
         LinearLayout ly = (LinearLayout) inflate.findViewById(R.id.meeting_layout);
         MaterialSpinner editSpinner = ly.findViewById(R.id.meet_name);
         TextView text = ly.findViewById(R.id.des_text);
-        text.setText("hhhhhh");
+        text.setText(Constants.MODE_DESC.get(index));
         RadiusImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.mode1);
         new MaterialDialog.Builder(context)

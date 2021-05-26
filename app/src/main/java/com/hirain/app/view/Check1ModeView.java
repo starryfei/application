@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.hirain.app.R;
 import com.hirain.app.activity.ExperienceActivity;
+import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
@@ -33,7 +34,7 @@ public class Check1ModeView implements DynamicView {
         TextView text = ly.findViewById(R.id.des_text);
         ImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.check0);
-        text.setText("hhhhhh");
+        text.setText(Constants.CHECK_DESC.get(0));
 
         new MaterialDialog.Builder(context)
                 .customView(inflate, true)

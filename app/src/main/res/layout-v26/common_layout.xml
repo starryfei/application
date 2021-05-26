@@ -27,9 +27,7 @@
           />
    </LinearLayout>
 
-<!--   app:riv_selected_border_color="@color/xui_config_color_gray_4"-->
-<!--   app:riv_selected_border_width="1px"-->
-<!--   app:riv_selected_mask_color="@color/xui_config_color_gray_8"-->
+
    <TextView
        android:id="@+id/des_text"
        android:layout_marginTop="5dp"
@@ -39,6 +37,7 @@
        android:layout_marginLeft="30dp"
        android:fontFamily="@font/pingfang"
        android:maxLines="100"
+       android:textColor="@color/white"
        android:inputType="textMultiLine"
        android:scrollHorizontally = "false"
        />

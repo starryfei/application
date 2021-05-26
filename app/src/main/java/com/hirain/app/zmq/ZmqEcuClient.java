@@ -34,20 +34,14 @@ public class ZmqEcuClient {
             socket.send(message,0);
             String str = socket.recvStr(0);
             listener.messageListener(str);
+            socket = null;
         } else {
             // 失败重试
-            count++;
-            if(count < 5) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 start();
                 sendMessage(message, listener);
-                Log.e(APP_LOG,"reconnect："+count);
+//                Log.e(APP_LOG,"reconnect："+count);
 
-            }
+//            }
         }
     }
     public void start() {

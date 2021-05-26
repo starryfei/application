@@ -1,9 +1,12 @@
 package com.hirain.app.activity;
 
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+
+import androidx.annotation.RequiresApi;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -26,6 +29,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.hirain.app.common.Constants.APP_LOG;
+
+@RequiresApi(api = Build.VERSION_CODES.Q)
 
 public class VoiceActivity extends FloatButtonActivity {
     @BindView(R.id.voice_input_btn)

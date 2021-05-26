@@ -166,6 +166,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.SwipeV
                 editor.commit();//提交修改
                 Intent intent = new Intent(context, ModeActivity.class);
                 context.startActivity(intent);
+//                Intent intent=new Intent();
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.setClass(context,ModeActivity.class);
+//                context.startActivity(intent);
 
 
             }).neutralText(R.string.modify).onNeutral((dialog, which) -> {

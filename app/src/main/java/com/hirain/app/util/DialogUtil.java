@@ -116,13 +116,14 @@ public class DialogUtil {
             //放在UI线程弹Toast
             MaterialDialog dialog = new MaterialDialog.Builder(context).titleColorRes(R.color.white)
                     .positiveColorRes(R.color.dialog_ok_color).customView(inflate,true)
-                    .title("图像")
+                    .title("图像").titleGravity(GravityEnum.CENTER)
+                    .backgroundColorRes(R.color.dialog_color)
                     .positiveText("确定")
                     .show();
             Window window = dialog.getWindow();
             WindowManager.LayoutParams lp = window.getAttributes();
-            lp.width=200;
-            lp.height = 200;
+            lp.width=300;
+            lp.height = 250;
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override

@@ -29,11 +29,29 @@ public class Constants {
 
     public final static List<String> CHECK_LIST = Arrays.asList("驾驶员检测",
             "视线跟踪","健康监控","乘员检测","IOT互联","敬请期待");
-//    public final static List<Integer> CHECK_LIST_IMAGE= Arrays.asList(R.mipmap.check0,
-//            R.mipmap.check1,R.mipmap.check2,R.mipmap.check3,R.mipmap.check0,R.mipmap.check0,R.mipmap.check0)
+
+    public final static List<String> MODE_DESC = Arrays.asList("可体验正常下班通勤路上，约会前的冥想模式，" +
+            "座椅自动调整到舒适状态，播放舒适音乐，可语音控制播放电影、玩游戏",
+            "可体验车上开会，通过语音实现实时会议开启结束，转录会议内容，微信分享会议记录",
+            "体验旅行自动规划路线，有美景自动拍照并和家里分享，自动预定景区门票和酒店" ,
+            "体验来自桃子的情人节祝福，自动预约浪漫餐厅，享受女王模式，检测开心自动拍照并分享给家人",
+            "体验用健康芯片检测，并可预约专属医生，当检测出驾驶员疲劳时，自动安排节目缓解",
+            "检测宝宝哭泣，可自动安排讲故事帮助哄睡宝宝，可以让副驾家人移动到后排照顾宝宝，可以自动打开投影和宝宝一起玩游戏",
+            "为新手司机提供360以及语音操作指导，体验自动停车与接送，自动除雾，和家里通话以及开启回家模式，自动开起家里电器" ,
+            "");
+    public final static List<String> CHECK_DESC =Arrays.asList("检测驾驶员的车上行为动作",
+            "在特定区域可根据驾驶员视线角度显示建筑物名称",
+            "根据健康监测芯片监测成员健康信息",
+            "上车后手机、后排家庭成员（孩子、宠物）遗忘在车上后，会通过语音和氛围灯提示",
+            "在车上可以通过语音打开关闭家里监控、台灯和风扇",
+            "");
+
+
 
     public final static String VOICE = "主人，咱们去总统府的旅游该出发了，已为您准备好车辆，请记得随身携带好身份证" +
             "随身物品等。另外，目的地会有小雨，请准备好雨伞。";
+
+
 
     public final static Map<String,String> AGE_INPUTS = new HashMap<>();
     public final static Map<String,String> WEIGHT_INPUTS = new HashMap<>();

@@ -16,7 +16,6 @@ public class ZmqEcuSubClient {
     private ZMQ.Socket socket;
     private ZMQ.Context context;
     private static ZmqEcuSubClient zmqClient;
-    private int count = 0;
 
     private boolean run =true;
 
@@ -34,18 +33,18 @@ public class ZmqEcuSubClient {
     }
 
     public void recMessage(IMessageListener listener) {
-        if (socket == null || context == null) {
+        if (socket == null) {
             start();
         }
         while (true) {
             if(run) {
                 String s = socket.recvStr();
-                System.out.println(s);
                 if (StringUtils.isNoneBlank(s)) {
                     Log.d(APP_LOG, s);
                     listener.messageListener(s);
                 }
             }else {
+                socket = null;
                 break;
             }
 
