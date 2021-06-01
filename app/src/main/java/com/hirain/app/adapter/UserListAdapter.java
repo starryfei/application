@@ -236,7 +236,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.SwipeV
 
         void bindData(User user) {
             textView.setText(user.getName());
-            lastTime.setText(user.getLastTime());
+            lastTime.setText(user.getTime());
             String image = user.getImage();
             Bitmap bitmap = ImageBase64Utils.decodeStringToBitmap(image);
             imageView.setImageBitmap(bitmap);

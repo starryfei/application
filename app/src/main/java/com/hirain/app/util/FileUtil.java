@@ -89,10 +89,6 @@ public class FileUtil {
             //设置文件类型
             contentValues.put(MediaStore.Downloads.MIME_TYPE, "image/JPEG");
 
-            //执行insert操作，向系统文件夹中添加文件
-            //EXTERNAL_CONTENT_URI代表外部存储器，该值不变
-//            Uri uri = MediaStore.Downloads.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY);
-
             Uri uri = context.getContentResolver().insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues);
             if (uri != null) {
                 //若生成了uri，则表示该文件添加成功
@@ -124,7 +120,6 @@ public class FileUtil {
             contentValues.put(MediaStore.Downloads.MIME_TYPE, "application/txt");
             Uri contentUri = MediaStore.Downloads.getContentUri("external");
             Uri uri = context.getContentResolver().insert(contentUri,contentValues);
-            System.out.println(contentUri+" "+uri);
             if (uri != null) {
                 //若生成了uri，则表示该文件添加成功
                 //使用流将内容写入该uri中即可
@@ -135,20 +130,11 @@ public class FileUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-//        intent.addCategory(Intent.CATEGORY_OPENABLE);
-//        intent.setType("application/pdf");
-//        intent.putExtra(Intent.EXTRA_TITLE, "invoice.pdf");
-//
-//        // Optionally, specify a URI for the directory that should be opened in
-//        // the system file picker when your app creates the document.
-//        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri);
-//
-//        startActivityForResult(intent, CREATE_FILE);
+
     }
 
 
-
+@Deprecated
     public static void saveImageToStream(Bitmap bitmap, String userName) {
         String fileName = TimeUtil.getTime() + ".png";
         File rootPath = rootFolder(userName, "image");

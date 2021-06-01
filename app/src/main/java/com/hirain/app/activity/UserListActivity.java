@@ -166,7 +166,7 @@ public class UserListActivity extends FloatButtonActivity {
             User user = new User();
             user.setName(name);
             user.setSex(sex);
-            user.setLastTime(time);
+            user.time(time);
             user.setAge(age);
             user.setWeight(weight);
             user.setHeight(height);

@@ -167,7 +167,7 @@ public class MainActivity extends BaseActivity {
         user.setHeight(height);
         String weight = WEIGHT_INPUTS.get(weightSpinner.getSelectedItem());
         user.setWeight(weight);
-        user.setLastTime(TimeUtil.getCurrent());
+        user.time(TimeUtil.getCurrent());
         String sex = sexSpinner.getSelectedItem();
         if(StringUtils.equals(sex,"男")) {
             user.setSex("0");

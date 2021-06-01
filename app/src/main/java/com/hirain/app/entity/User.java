@@ -11,7 +11,7 @@ public class User implements Serializable ,Comparable<User>{
     private String weight;
     private String age;
     private String image;
-    private String lastTime;
+    private String time;
     private String command ="register";
 
     @Override
@@ -21,7 +21,7 @@ public class User implements Serializable ,Comparable<User>{
                 ", sex=" + sex +
                 ", height='" + height + '\'' +
                 ", age='" + age + '\'' +
-                ", la='" + lastTime + '\'' +
+                ", la='" + time + '\'' +
 
                 '}';
     }
@@ -47,12 +47,12 @@ public class User implements Serializable ,Comparable<User>{
         return command;
     }
 
-    public void setLastTime(String lastTime) {
-        this.lastTime = lastTime;
+    public void time(String lastTime) {
+        this.time = lastTime;
     }
 
-    public String getLastTime() {
-        return lastTime;
+    public String getTime() {
+        return time;
     }
 
     public String getName() {
