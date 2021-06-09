@@ -11,16 +11,16 @@ public class Constants {
     // sub 需要地址，但是pub 不需要地址
 //    public final static String NUC_SERVER_SUB = "tcp://192.168.1.100:5556";
 
-    public final static String NUC_SERVER_SUB = "tcp://192.168.31.63:5556";
-    public final static String NUC_SERVER_PUB = "tcp://192.168.31.63:5555";
+    public final static String NUC_SERVER_SUB = "tcp://192.168.8.63:5556";
+    public final static String NUC_SERVER_PUB = "tcp://192.168.8.63:5555";
 
 
     // 和大脑的Server的地址
-    public final static String ECU_SERVER = "tcp://192.168.31.156:6668";
+    public final static String ECU_SERVER = "tcp://192.168.8.156:6668";
 
 
     // 和大脑的Server pub 的地址
-    public final static String ECU_SERVER_SUB = "tcp://192.168.31.156:6666";
+    public final static String ECU_SERVER_SUB = "tcp://192.168.8.156:6666";
 
     public final static String APP_LOG ="APP_LOG";
 
@@ -28,7 +28,7 @@ public class Constants {
             "情侣模式","健康关怀模式","亲子模式","新手司机模式","敬请期待");
 
     public final static List<String> CHECK_LIST = Arrays.asList("驾驶员检测",
-            "视线跟踪","健康监控","乘员检测","IOT互联","敬请期待");
+            "视线跟踪","健康监控","乘员检测","IOT互联","唇音融合","敬请期待");
 
     public final static List<String> MODE_DESC = Arrays.asList("可体验正常下班通勤路上，约会前的冥想模式，" +
             "座椅自动调整到舒适状态，播放舒适音乐，可语音控制播放电影、玩游戏",
@@ -44,6 +44,7 @@ public class Constants {
             "根据健康监测芯片监测成员健康信息",
             "上车后手机、后排家庭成员（孩子、宠物）遗忘在车上后，会通过语音和氛围灯提示",
             "在车上可以通过语音打开关闭家里监控、台灯和风扇",
+            "",
             "");
 
 

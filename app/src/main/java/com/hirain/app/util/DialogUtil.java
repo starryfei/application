@@ -1,5 +1,6 @@
 package com.hirain.app.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -21,12 +22,18 @@ import com.hirain.app.R;
 import com.hirain.app.task.SendMessageTask;
 import com.xuexiang.xui.widget.dialog.materialdialog.GravityEnum;
 import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
+import com.xuexiang.xui.widget.imageview.RadiusImageView;
 
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.atomic.AtomicBoolean;
 
+import static android.view.MotionEvent.ACTION_UP;
+import static com.hirain.app.common.CommandConstants.ISLAND_AF_COMMAND;
+import static com.hirain.app.common.CommandConstants.ISLAND_FW_COMMAND;
+import static com.hirain.app.common.CommandConstants.ISLAND_STOP_COMMAND;
 import static com.hirain.app.common.Constants.APP_LOG;
 
 public class DialogUtil {
@@ -132,6 +139,77 @@ public class DialogUtil {
                 }
             },5000);
         });
+
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    public static void moveDialog(Context context){
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        View inflate = layoutInflater.inflate(R.layout.move_dialog_layout, null, false);
+        RadiusImageView before =  inflate.findViewById(R.id.move_before);
+        RadiusImageView after =  inflate.findViewById(R.id.move_after);
+        AtomicBoolean isBeforeClick = new AtomicBoolean(false);
+        AtomicBoolean isAfterClick = new AtomicBoolean(false);
+
+        before.setOnLongClickListener(v -> {
+            sendCommand(ISLAND_FW_COMMAND,context);
+            isBeforeClick.set(true);
+            return false;
+        });
+        before.setOnTouchListener((v, event) -> {
+
+            if (event.getAction() == ACTION_UP && isBeforeClick.get()) {
+                Log.d(APP_LOG,"beofre longClick release");
+                sendCommand(ISLAND_STOP_COMMAND,context);
+
+                isBeforeClick.set(false);
+
+            }
+            return false;
+        });
+        after.setOnLongClickListener(v -> {
+            Log.d(APP_LOG,"after longClick");
+            sendCommand(ISLAND_AF_COMMAND,context);
+
+            isAfterClick.set(true);
+
+            return false;
+        });
+        after.setOnTouchListener((v, event) -> {
+            if (event.getAction() == ACTION_UP && isAfterClick.get()) {
+                Log.d(APP_LOG,"after longClick release");
+                sendCommand(ISLAND_STOP_COMMAND,context);
+                isAfterClick.set(false);
+            }
+            return false;
+        });
+        new MaterialDialog.Builder(context).titleColorRes(R.color.white)
+                .positiveColorRes(R.color.dialog_ok_color).customView(inflate,true)
+                .title("移动中岛").titleGravity(GravityEnum.CENTER)
+                .backgroundColorRes(R.color.dialog_color)
+                .positiveText("关闭")
+                .show();
+
+
+
+    }
+
+    public static void sendCommand(String command ,Context context) {
+        new SendMessageTask(message -> {
+            if(StringUtils.isNoneBlank(message)) {
+                JSONObject parse = (JSONObject) JSONObject.parse(message);
+
+                Log.d(APP_LOG, message);
+                String status = parse.getString("status");
+                if (StringUtils.equalsIgnoreCase(status, "success")) {
+                    toast(context, status);
+                }
+            } else {
+                toast(context, "connect server fail");
+
+            }
+
+        }).execute(command);
 
     }
 }

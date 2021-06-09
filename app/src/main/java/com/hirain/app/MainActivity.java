@@ -117,6 +117,10 @@ public class MainActivity extends BaseActivity {
      */
     @OnClick(R.id.button)
     public void buttonClick(){
+        if(StringUtils.isBlank(currentPhotoPath)) {
+            Toast.makeText(this, "请先拍摄照片！", Toast.LENGTH_LONG).show();
+            return;
+        }
         String inputValue = userNameEdit.getInputValue();
         if(StringUtils.isNoneBlank(inputValue)) {
             User user = initUser(inputValue);
@@ -146,13 +150,12 @@ public class MainActivity extends BaseActivity {
                 } else if(StringUtils.equalsIgnoreCase(status,"exist")){
                     Toast.makeText(applicationContext, "用户已经存在！", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(applicationContext, status, Toast.LENGTH_LONG).show();
+                    Toast.makeText(applicationContext, "注册失败，请重新拍摄照片！", Toast.LENGTH_LONG).show();
                 }
             },"register");
 
         } else {
-                Toast.makeText(this, "请输入用户昵称", Toast.LENGTH_LONG).show();
-
+                Toast.makeText(this, "请输入用户昵称！", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -72,13 +72,13 @@ public class CheckAdapter extends BaseAdapter {
                 case 4:
                     holder.imgChannel.setImageResource(R.mipmap.check6);
                     break;
-//                case 5:
-//                    holder.imgChannel.setImageResource(R.mipmap.check5);
-//                    break;
+                case 5:
+                    holder.imgChannel.setImageResource(R.mipmap.check2);
+                    break;
 //                case 6:
 //                    holder.imgChannel.setImageResource(R.mipmap.check6);
 //                    break;
-                case 5:
+                case 6:
                     holder.imgChannel.setImageResource(R.mipmap.other);
                     break;
 

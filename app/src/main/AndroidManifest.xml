@@ -34,11 +34,12 @@
 <!--            android:name=".task.HealthInfoTask"-->
 <!--            android:exported="false" />-->
 
-        <activity android:name=".activity.VoiceActivity" />
+        <activity android:name=".activity.NewDriverActivity" />
         <activity android:name=".activity.ExperienceActivity" />
+        <activity android:name=".activity.VoiceExperienceActivity" />
         <activity android:name=".activity.ModeActivity" />
         <activity android:name=".activity.UserListActivity" />
-        <activity android:name=".activity.DriverActivity"/>
+        <activity android:name=".activity.DriverTravelActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

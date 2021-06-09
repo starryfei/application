@@ -19,10 +19,13 @@ import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 import static com.hirain.app.common.Constants.APP_LOG;
 import static com.hirain.app.common.Constants.CHECK_LIST;
 
-public class Check1ModeView implements DynamicView {
+/**
+ * 驾驶员检测三合一
+ */
+public class DriverCheckModeView implements DynamicView {
     private Context context;
 
-    public Check1ModeView(Context context) {
+    public DriverCheckModeView(Context context) {
         this.context = context;
     }
 
@@ -45,7 +48,7 @@ public class Check1ModeView implements DynamicView {
 
                 .negativeText(R.string.lab_cancel).onPositive((dialog, which) -> {
             String command = "{\n" +
-                    "    \"command\":\"function" + (index + 1) + "\"" +
+                    "    \"command\":\"function1" + (index + 1) + "\"" +
                     "}";
             new SendMessageTask(message -> {
                 if (parseMessage(context, message)) {

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hirain.app.R;
-import com.hirain.app.activity.DriverActivity;
+import com.hirain.app.activity.DriverTravelActivity;
 import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.hirain.app.util.DialogUtil;
@@ -71,7 +71,7 @@ public class TravelView implements DynamicView {
                     String status = parse.getString("status");
                     if (StringUtils.equalsIgnoreCase(status, "success")) {
                         DialogUtil.toast(context,status);
-                        Intent intent = new Intent(context, DriverActivity.class);
+                        Intent intent = new Intent(context, DriverTravelActivity.class);
                         intent.putExtra("image",R.drawable.mode2);
                         context.startActivity(intent);
                     }

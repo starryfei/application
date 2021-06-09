@@ -25,4 +25,16 @@ public class CommandConstants {
             "    \"command\":\"tired\","+
             "    \"status\":\"start\""+
             "}";
+
+    public final static String ISLAND_FW_COMMAND =  "{\n" +
+            "    \"command\": \"island_forward\"\n" +
+            "}";
+
+    public final static String ISLAND_AF_COMMAND =  "{\n" +
+            "    \"command\": \"island_backward\"\n" +
+            "}";
+
+    public final static String ISLAND_STOP_COMMAND =  "{\n" +
+            "    \"command\": \"island_stop\"\n" +
+            "}";
 }

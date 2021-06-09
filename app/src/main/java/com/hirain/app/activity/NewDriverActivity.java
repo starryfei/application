@@ -11,6 +11,8 @@ import androidx.annotation.RequiresApi;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.hirain.app.R;
 import com.hirain.app.task.HealthThread;
 import com.hirain.app.task.SendMessageTask;
@@ -32,17 +34,23 @@ import static com.hirain.app.common.Constants.APP_LOG;
 
 @RequiresApi(api = Build.VERSION_CODES.Q)
 
-public class VoiceActivity extends FloatButtonActivity {
+/**
+ * 新手司机
+ */
+public class NewDriverActivity extends FloatButtonActivity {
     @BindView(R.id.voice_input_btn)
     Button voiceInputBtn;
     @BindView(R.id.exit_btn)
     Button exitBtn;
     @BindView(R.id.image_view)
     RadiusImageView imageView;
-
+    @BindView(R.id.menu_yellow)
+    FloatingActionMenu actionMenu;
+    @BindView(R.id.move)
+    FloatingActionButton moveActionBtn;
 
     private  RecognizerDialog mIatDialog;
-    private VoiceActivity voiceActivity;
+    private NewDriverActivity voiceActivity;
     private HealthThread thread;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +61,7 @@ public class VoiceActivity extends FloatButtonActivity {
 
         int image = getIntent().getIntExtra("image", 0);
         imageView.setImageResource(image);
-
+        actionMenu.removeMenuButton(moveActionBtn);
         InitListener listener = i -> {
         };
         // 初始化听写Dialog，如果只使用有UI听写功能，无需创建SpeechRecognizer

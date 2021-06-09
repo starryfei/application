@@ -8,57 +8,7 @@
     android:background="@color/colorPrimary"
     tools:context=".activity.UserListActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:id="@+id/toolbar"
-        app:popupTheme="@style/AppTheme.AppBarOverlay"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/back"
-            android:gravity="left|center"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:src="@mipmap/back">
-            </ImageView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/text_color"
-                android:fontFamily="@font/pingfang"
-                android:gravity="left"
-                android:textSize="20sp"
-                android:text="返回">
-
-            </TextView>
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/compare_by_name"
-            android:text="昵称排序"
-            android:textSize="20sp"
-
-            android:fontFamily="@font/pingfang"
-            android:textColor="@color/text_color"
-            >
-
-        </TextView>
-
-        <!--    <androidx.appcompat.widget.SearchView-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:gravity="right"-->
-        <!--        android:id="@+id/search_user"-->
-        <!--        app:queryHint="@string/search_tooltip"-->
-        <!--        android:layout_height="wrap_content">-->
-    </androidx.appcompat.widget.Toolbar>
-<!--    <com.xuexiang.xui.widget.actionbar.TitleBar-->
+    <!--    <com.xuexiang.xui.widget.actionbar.TitleBar-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:layout_marginTop="5dp"-->
@@ -78,16 +28,82 @@
 <!--    android:layout_marginRight="10dp"-->
 <!--    android:orientation="vertical">-->
 
-<!--    <androidx.appcompat.widget.SearchView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:gravity="right"-->
-<!--        android:id="@+id/search_user"-->
-<!--        app:queryHint="@string/search_tooltip"-->
-<!--        android:layout_height="wrap_content">-->
 
-<!--    </androidx.appcompat.widget.SearchView>-->
 <!--</LinearLayout>-->
 
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:popupTheme="@style/AppTheme.AppBarOverlay">
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="left|center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:src="@mipmap/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/pingfang"
+                android:gravity="left"
+                android:text="返回"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/compare_by_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pingfang"
+            android:text="昵称排序"
+
+            android:textColor="@color/text_color"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_user"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:gravity="center"
+            android:fontFamily="@font/pingfang"
+            android:textColor="@color/text_color"
+            app:queryHint="@string/search_tooltip">
+
+        </androidx.appcompat.widget.SearchView>
+
+        <TextView
+            android:id="@+id/compare_by_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="@font/pingfang"
+            android:text="时间排序"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+        <!--    <androidx.appcompat.widget.SearchView-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:gravity="right"-->
+        <!--        android:id="@+id/search_user"-->
+        <!--        app:queryHint="@string/search_tooltip"-->
+        <!--        android:layout_height="wrap_content">-->
+    </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:layout_width="match_parent"

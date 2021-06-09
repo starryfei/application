@@ -13,8 +13,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.hirain.app.R;
 import com.hirain.app.adapter.CheckAdapter;
 import com.hirain.app.entity.Mode;
-import com.hirain.app.view.Check1ModeView;
+import com.hirain.app.view.DriverCheckModeView;
 import com.hirain.app.view.CheckModeView;
+import com.hirain.app.view.VoiceCheckModeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,12 +77,16 @@ public class CheckGridFragment extends Fragment {
         }
         final Context context = getContext();
         gridView.setAdapter(new CheckAdapter(modes, context));
-        Check1ModeView view1 = new Check1ModeView(context);
+        DriverCheckModeView view1 = new DriverCheckModeView(context);
         CheckModeView checkModeView = new CheckModeView(context);
         gridView.setOnItemClickListener((parent, view, position, id) -> {
             if(position ==0){
                 view1.show(position);
-            } else {
+            } else if(position == 5){
+                VoiceCheckModeView modeView = new VoiceCheckModeView(context);
+                modeView.show(position);
+            }
+            else {
                 checkModeView.show(position);
             }
 

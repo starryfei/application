@@ -34,7 +34,7 @@ public class CheckModeView implements DynamicView {
         TextView text = ly.findViewById(R.id.des_text);
         ImageView imageView = ly.findViewById(R.id.mode_image);
         imageView.setImageResource(R.drawable.check2 + index);
-        if (index == 5) {
+        if (index == 6) {
             new MaterialDialog.Builder(context)
                     .content("敬请期待")
                     .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
@@ -51,9 +51,9 @@ public class CheckModeView implements DynamicView {
                     .positiveText(R.string.lab_submit).backgroundColorRes(R.color.dialog_color)
 
                     .negativeText(R.string.lab_cancel).onPositive((dialog, which) -> {
-                String command = "{\n" +
-                        "    \"command\":\"function" + (index + 3) + "\"" +
-                        "}";
+                        String command = "{\n" +
+                            "    \"command\":\"function" + (index + 3) + "\"" +
+                            "}";
                 new SendMessageTask(message -> {
                     if (parseMessage(context, message)) {
                         Intent intent = new Intent(context, ExperienceActivity.class);
@@ -64,10 +64,6 @@ public class CheckModeView implements DynamicView {
                 }).execute(command);
 
                 Log.d(APP_LOG, command);
-
-
-//                        Intent intent = new Intent(context, ExperienceActivity.class);
-//                        context.startActivity(intent);
 
             }).show();
 //            Window dialogWindow = show.getWindow();

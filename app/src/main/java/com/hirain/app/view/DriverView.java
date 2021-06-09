@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hirain.app.R;
-import com.hirain.app.activity.VoiceActivity;
+import com.hirain.app.activity.NewDriverActivity;
 import com.hirain.app.common.Constants;
 import com.hirain.app.task.SendMessageTask;
 import com.hirain.app.util.DialogUtil;
@@ -62,7 +62,7 @@ public class DriverView implements DynamicView {
                     if (StringUtils.equalsIgnoreCase(status, "success")) {
                         DialogUtil.toast(context,status);
 
-                        Intent intent = new Intent(context, VoiceActivity.class);
+                        Intent intent = new Intent(context, NewDriverActivity.class);
                         intent.putExtra("image",R.drawable.mode6);
                         context.startActivity(intent);
                     }

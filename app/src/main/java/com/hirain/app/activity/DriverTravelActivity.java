@@ -14,6 +14,9 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.hirain.app.R;
 import com.hirain.app.task.HealthThread;
 import com.hirain.app.task.SendMessageTask;
+import com.hirain.app.util.NetwrokUtil;
+import com.hirain.app.util.SpeakerUtil;
+import com.xuexiang.xui.widget.dialog.materialdialog.MaterialDialog;
 import com.xuexiang.xui.widget.imageview.RadiusImageView;
 
 import butterknife.BindView;
@@ -21,10 +24,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.hirain.app.common.Constants.APP_LOG;
+import static com.hirain.app.common.Constants.VOICE;
 
 @RequiresApi(api = Build.VERSION_CODES.Q)
-
-public class ExperienceActivity extends FloatButtonActivity {
+public class DriverTravelActivity extends FloatButtonActivity {
     @BindView(R.id.sign_out_btn)
     Button signOutBtn;
     @BindView(R.id.text)
@@ -35,6 +38,7 @@ public class ExperienceActivity extends FloatButtonActivity {
     FloatingActionMenu actionMenu;
     @BindView(R.id.move)
     FloatingActionButton moveActionBtn;
+
     private HealthThread thread;
 
     @Override
@@ -44,19 +48,23 @@ public class ExperienceActivity extends FloatButtonActivity {
         ButterKnife.bind(this);
         int image = getIntent().getIntExtra("image", 0);
         imageView.setImageResource(image);
+        if(NetwrokUtil.isNetworkAvailable(this)) {
+            SpeakerUtil.startSpeaking(this,VOICE);
+        } else {
+            new MaterialDialog.Builder(this)
+                    .title("网络异常")
+                    .content("请检查网络是否已经连接")
+                    .positiveText("确定")
+                    .show();
+        }
         SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
         String name = userInfo.getString("account", "");
         actionMenu.removeMenuButton(moveActionBtn);
-        thread = new HealthThread(name, this);
+//        healthInfoTask = new HealthInfoTask();
+//        healthInfoTask.execute(name);
+
+        thread = new HealthThread(name,this);
         thread.start();
-
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-//       healthInfoTask.cancelTask();
 
     }
 
@@ -66,16 +74,12 @@ public class ExperienceActivity extends FloatButtonActivity {
                 "    \"command\": \"control\",\n" +
                 "    \"status\": \"stop\"\n" +
                 "}";
-        Log.d(APP_LOG, command);
+        Log.d(APP_LOG,command);
         new SendMessageTask(message -> {
-            Log.d(APP_LOG, message);
+           Log.d(APP_LOG,message);
         }).execute(command);
+        thread.closeConnect();
 
-        try {
-            thread.closeConnect();
-        } catch (Exception e) {
-            Log.e(APP_LOG, "stop thread");
-        }
         finish();
     }
 

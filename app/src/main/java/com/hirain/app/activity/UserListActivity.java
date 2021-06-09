@@ -2,8 +2,6 @@ package com.hirain.app.activity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +22,7 @@ import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.dialog.MiniLoadingDialog;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -38,18 +36,21 @@ public class UserListActivity extends FloatButtonActivity {
 
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
-//    @BindView(R.id.search_user)
-//    SearchView searchView;
+    @BindView(R.id.search_user)
+    SearchView searchView;
     @BindView(R.id.back)
     LinearLayout back;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.compare_by_name)
     TextView textView;
+    @BindView(R.id.compare_by_time)
+    TextView timeView;
     private UserListAdapter adapter;
     private ArrayList<User> users;
     private UserListActivity userListActivity;
-    boolean isSoft = false;
+    boolean isSoftByName = false;
+    boolean isSoftByTime = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,19 +79,6 @@ public class UserListActivity extends FloatButtonActivity {
 
             }
         }).start();
-
-
-
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        MenuItem menuItem = menu.findItem(R.id.search_view);
-
-        SearchView searchView = (SearchView) menuItem.getActionView();
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -108,8 +96,37 @@ public class UserListActivity extends FloatButtonActivity {
         //一直都是搜索框，搜索图标在输入框左侧（默认是内嵌的）
         searchView.setIconifiedByDefault(true);
         searchView.clearFocus();
-        return true;
+
+
+
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//        MenuItem menuItem = menu.findItem(R.id.search_view);
+//
+//        SearchView searchView = (SearchView) menuItem.getActionView();
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                adapter.getFilter().filter(newText);
+//                return true;
+//            }
+//        });
+//
+//        //默认就是搜索框展开
+//        searchView.setIconified(false);
+//        //一直都是搜索框，搜索图标在输入框左侧（默认是内嵌的）
+//        searchView.setIconifiedByDefault(true);
+//        searchView.clearFocus();
+//        return true;
+//    }
     @OnClick(R.id.back)
     public void back(){
         finish();
@@ -181,12 +198,29 @@ public class UserListActivity extends FloatButtonActivity {
 
     @OnClick(R.id.compare_by_name)
     public void onClickByName(){
-        if (!isSoft) {
-            Collections.sort(users);
-            isSoft = true;
+        if (!isSoftByName) {
+            Comparator<User> userComparator = Comparator.comparing(User::getName);
+            users.sort(userComparator);
+            isSoftByName = true;
         } else {
-            isSoft =false;
-            Collections.reverse(users);
+            isSoftByName =false;
+            Comparator<User> reversed = Comparator.comparing(User::getName).reversed();
+            users.sort(reversed);
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    @OnClick(R.id.compare_by_time)
+    public void onClickByTime(){
+        if (!isSoftByTime) {
+//            Collections.sort(users);
+            Comparator<User> userComparator = Comparator.comparing(User::getTime);
+            users.sort(userComparator);
+            isSoftByTime = true;
+        } else {
+            isSoftByTime =false;
+            Comparator<User> reversed = Comparator.comparing(User::getTime).reversed();
+            users.sort(reversed);
         }
         adapter.notifyDataSetChanged();
     }

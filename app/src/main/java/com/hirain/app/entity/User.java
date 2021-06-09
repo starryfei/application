@@ -2,7 +2,7 @@ package com.hirain.app.entity;
 
 import java.io.Serializable;
 
-public class User implements Serializable ,Comparable<User>{
+public class User implements Serializable {
     private static final long serialVersionUID=1L;
 //    private String userId;
     private String name;
@@ -17,12 +17,13 @@ public class User implements Serializable ,Comparable<User>{
     @Override
     public String toString() {
         return "User{" +
-                ", name='" + name + '\'' +
-                ", sex=" + sex +
+                "name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
                 ", height='" + height + '\'' +
+                ", weight='" + weight + '\'' +
                 ", age='" + age + '\'' +
-                ", la='" + time + '\'' +
-
+                ", time='" + time + '\'' +
+                ", command='" + command + '\'' +
                 '}';
     }
 
@@ -95,10 +96,10 @@ public class User implements Serializable ,Comparable<User>{
         this.image = image;
     }
 
-
-    @Override
-    public int compareTo(User o) {
-        int i = getName().compareTo(o.getName());
-        return i;
-    }
+//
+//    @Override
+//    public int compareTo(User o) {
+//        int i = getName().compareTo(o.getName());
+//        return i;
+//    }
 }
