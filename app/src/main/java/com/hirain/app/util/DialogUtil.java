@@ -190,8 +190,6 @@ public class DialogUtil {
                 .positiveText("关闭")
                 .show();
 
-
-
     }
 
     public static void sendCommand(String command ,Context context) {

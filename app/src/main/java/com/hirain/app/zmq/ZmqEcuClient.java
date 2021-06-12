@@ -34,6 +34,7 @@ public class ZmqEcuClient {
             socket.send(message,0);
             String str = socket.recvStr(0);
             listener.messageListener(str);
+            socket.close();
             socket = null;
         } else {
             // 失败重试
