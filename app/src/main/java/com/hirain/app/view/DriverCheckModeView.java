@@ -48,7 +48,7 @@ public class DriverCheckModeView implements DynamicView {
 
                 .negativeText(R.string.lab_cancel).onPositive((dialog, which) -> {
             String command = "{\n" +
-                    "    \"command\":\"function1" + (index + 1) + "\"" +
+                    "    \"command\": \"function1\"\n" +
                     "}";
             new SendMessageTask(message -> {
                 if (parseMessage(context, message)) {

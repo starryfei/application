@@ -77,7 +77,7 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_user"
-            android:layout_width="600dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:gravity="center"
@@ -92,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="100dp"
             android:fontFamily="@font/pingfang"
             android:text="时间排序"
             android:textColor="@color/text_color"
