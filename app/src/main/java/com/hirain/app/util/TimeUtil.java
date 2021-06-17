@@ -12,7 +12,7 @@ public class TimeUtil {
     }
 
     public static String getTime(){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
         String format = simpleDateFormat.format(new Date());
         return format;
     }

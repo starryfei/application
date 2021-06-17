@@ -104,13 +104,13 @@ public class FileUtil {
         }
     }
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    public static void saveFile(Context context, String userName, String type, String time, String content) {
-        String fileName = time;
+    public static void saveFile(Context context, String userName, String type,  String content) {
+        String fileName = TimeUtil.getTime();
         try {
             //设置保存参数到ContentValues中
             ContentValues contentValues = new ContentValues();
             //设置文件名
-            contentValues.put(MediaStore.Downloads.DISPLAY_NAME, fileName+".txt");
+            contentValues.put(MediaStore.Downloads.DISPLAY_NAME, fileName);
 //            contentValues.put(MediaStore.Downloads.D, fileName);
 
             contentValues.put(MediaStore.Downloads.RELATIVE_PATH, "Download/"+ userName+"/healthinfo/"+type);

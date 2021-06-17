@@ -47,7 +47,7 @@ public class HealthThread extends Thread {
                 String poll = queue.poll();
                 if (StringUtils.isNoneBlank(poll)) {
                     Log.d(APP_LOG, "queue running....");
-                    String time = getTime();
+//                    String time = getTime();
                     JSONObject parse = JSONObject.parseObject(poll);
 
                     String command1 = parse.getString("command");
@@ -57,10 +57,10 @@ public class HealthThread extends Thread {
                         parseImage(parse, name);
 
                     } else if (StringUtils.equalsIgnoreCase(command1, "healthinfo_ECM")) {
-                        parseHealthInfo(parse, name, time, "ECM");
+                        parseHealthInfo(parse, name, "ECM");
 
                     } else if (StringUtils.equalsIgnoreCase(command1, "healthinfo_PWM")) {
-                        parseHealthInfo(parse, name, time, "PWM");
+                        parseHealthInfo(parse, name, "PWM");
                     }
                 }
             }
@@ -107,7 +107,7 @@ public class HealthThread extends Thread {
 
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
-    private void parseHealthInfo(JSONObject parse, String name, String time, String type) {
+    private void parseHealthInfo(JSONObject parse, String name, String type) {
         parse.remove("command");
         parse.remove("ID");
         StringBuilder sb = new StringBuilder();
@@ -152,7 +152,7 @@ public class HealthThread extends Thread {
             sb.append("\n");
         }
         Log.d(APP_LOG, sb.toString());
-        FileUtil.saveFile(context, name, type, time, sb.toString());
+        FileUtil.saveFile(context, name, type, sb.toString());
 
     }
 }
