@@ -24,7 +24,7 @@
             android:fontFamily="@font/pingfang"
             fab:fab_label="移动中岛"
 
-            android:src="@drawable/tired" />
+            android:src="@drawable/voice" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/tired"

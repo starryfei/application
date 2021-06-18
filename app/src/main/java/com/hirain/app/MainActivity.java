@@ -77,7 +77,7 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.user_name)
     ValidatorEditText userNameEdit;
-    private  String currentPhotoPath;
+    private String currentPhotoPath;
 
     @Override
     protected void onStart() {
@@ -116,13 +116,14 @@ public class MainActivity extends BaseActivity {
      * 测试和终端交互的代码测试register
      */
     @OnClick(R.id.button)
-    public void buttonClick(){
-        if(StringUtils.isBlank(currentPhotoPath)) {
+    public void buttonClick() {
+
+        if (StringUtils.isBlank(currentPhotoPath)) {
             Toast.makeText(this, "请先拍摄照片！", Toast.LENGTH_LONG).show();
             return;
         }
         String inputValue = userNameEdit.getInputValue();
-        if(StringUtils.isNoneBlank(inputValue)) {
+        if (StringUtils.isNoneBlank(inputValue)) {
             User user = initUser(inputValue);
             String s = JSONObject.toJSONString(user);
             Log.d(APP_LOG, s);
@@ -134,11 +135,11 @@ public class MainActivity extends BaseActivity {
             nucMessageThread.sendMessage(s);
 
             nucMessageThread.recvMessage(message -> {
-              //  parseUser(message);
+                //  parseUser(message);
                 JSONObject object = JSONObject.parseObject(message);
                 String status = object.getString("status");
                 Context applicationContext = getApplicationContext();
-                if(StringUtils.equalsIgnoreCase(status,"success")) {
+                if (StringUtils.equalsIgnoreCase(status, "success")) {
                     //Toast.makeText(applicationContext, "注册成功！", Toast.LENGTH_LONG).show();
                     SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
@@ -147,15 +148,15 @@ public class MainActivity extends BaseActivity {
 
                     Intent intent = new Intent(applicationContext, ModeActivity.class);
                     startActivity(intent);
-                } else if(StringUtils.equalsIgnoreCase(status,"exist")){
+                } else if (StringUtils.equalsIgnoreCase(status, "exist")) {
                     Toast.makeText(applicationContext, "用户已经存在！", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(applicationContext, "注册失败，请重新拍摄照片！", Toast.LENGTH_LONG).show();
                 }
-            },"register");
+            }, "register");
 
         } else {
-                Toast.makeText(this, "请输入用户昵称！", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "请输入用户昵称！", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -172,9 +173,9 @@ public class MainActivity extends BaseActivity {
         user.setWeight(weight);
         user.time(TimeUtil.getCurrent());
         String sex = sexSpinner.getSelectedItem();
-        if(StringUtils.equals(sex,"男")) {
+        if (StringUtils.equals(sex, "男")) {
             user.setSex("0");
-        } else if(StringUtils.equals(sex,"女")){
+        } else if (StringUtils.equals(sex, "女")) {
             user.setSex("1");
         } else {
             user.setSex("2");
@@ -203,12 +204,13 @@ public class MainActivity extends BaseActivity {
         currentPhotoPath = image.getAbsolutePath();
         return image;
     }
+
     /**
      * 测试已有用户
      */
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @OnClick(R.id.exist_btn)
-    public void existBtnClick(){
+    public void existBtnClick() {
         Intent intent = new Intent(this, UserListActivity.class);
         startActivity(intent);
 //        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
@@ -217,19 +219,20 @@ public class MainActivity extends BaseActivity {
 //        FileUtil.saveFile(this,"jun","ECM","aa","hhhhhhhhhhhhhh");
 
     }
+
     @SuppressLint("ResourceAsColor")
     @OnClick(R.id.imageView)
-    public void takePhoto(){
+    public void takePhoto() {
         new MaterialDialog.Builder(this)
                 .backgroundColorRes(R.color.dialog_color)
                 .titleColorRes(R.color.white).positiveColorRes(R.color.dialog_ok_color)
                 .content("是否拍摄照片")
                 .positiveText("确定").onPositive((dialog, which) -> {
 
-                     ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 
-                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                 // Create the File where the photo should go
                 File photoFile = null;
@@ -249,7 +252,7 @@ public class MainActivity extends BaseActivity {
                 }
             }
 
-                }).negativeText("取消").show();
+        }).negativeText("取消").show();
     }
 
     @Override
@@ -257,20 +260,13 @@ public class MainActivity extends BaseActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             //Bundle extras = data.getExtras();
             Bitmap imageBitmap = BitmapFactory.decodeFile(currentPhotoPath);
-            Log.e(APP_LOG,"size"+imageBitmap.getByteCount()/1024+"kb");
-                    //(Bitmap) extras.get("data");
+            Log.e(APP_LOG, "size" + imageBitmap.getByteCount() / 1024 + "kb");
+            //(Bitmap) extras.get("data");
             imageView.setImageBitmap(imageBitmap);
         }
         super.onActivityResult(requestCode, resultCode, data);
 
     }
-
-
-
-
-
-
-
 
 
 }

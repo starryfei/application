@@ -33,6 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import static android.view.MotionEvent.ACTION_UP;
 import static com.hirain.app.common.CommandConstants.ISLAND_AF_COMMAND;
 import static com.hirain.app.common.CommandConstants.ISLAND_FW_COMMAND;
+import static com.hirain.app.common.CommandConstants.ISLAND_RESET_COMMAND;
 import static com.hirain.app.common.CommandConstants.ISLAND_STOP_COMMAND;
 import static com.hirain.app.common.Constants.APP_LOG;
 
@@ -148,6 +149,8 @@ public class DialogUtil {
         View inflate = layoutInflater.inflate(R.layout.move_dialog_layout, null, false);
         RadiusImageView before =  inflate.findViewById(R.id.move_before);
         RadiusImageView after =  inflate.findViewById(R.id.move_after);
+        RadiusImageView reset =  inflate.findViewById(R.id.move_reset);
+
         AtomicBoolean isBeforeClick = new AtomicBoolean(false);
         AtomicBoolean isAfterClick = new AtomicBoolean(false);
 
@@ -167,6 +170,12 @@ public class DialogUtil {
             }
             return false;
         });
+        reset.setOnClickListener(v -> {
+            Log.d(APP_LOG,ISLAND_RESET_COMMAND);
+
+            sendCommand(ISLAND_RESET_COMMAND,context);
+        });
+
         after.setOnLongClickListener(v -> {
             Log.d(APP_LOG,"after longClick");
             sendCommand(ISLAND_AF_COMMAND,context);
@@ -196,7 +205,6 @@ public class DialogUtil {
         new SendMessageTask(message -> {
             if(StringUtils.isNoneBlank(message)) {
                 JSONObject parse = (JSONObject) JSONObject.parse(message);
-
                 Log.d(APP_LOG, message);
                 String status = parse.getString("status");
                 if (StringUtils.equalsIgnoreCase(status, "success")) {
