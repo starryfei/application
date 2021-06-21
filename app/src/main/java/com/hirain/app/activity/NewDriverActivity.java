@@ -1,10 +1,10 @@
 package com.hirain.app.activity;
 
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
@@ -48,6 +48,8 @@ public class NewDriverActivity extends FloatButtonActivity {
     FloatingActionMenu actionMenu;
     @BindView(R.id.move)
     FloatingActionButton moveActionBtn;
+    @BindView(R.id.text)
+    TextView textView;
 
     private  RecognizerDialog mIatDialog;
     private NewDriverActivity voiceActivity;
@@ -58,6 +60,8 @@ public class NewDriverActivity extends FloatButtonActivity {
         setContentView(R.layout.activity_voice);
         ButterKnife.bind(this);
         voiceActivity = this;
+
+
 
         int image = getIntent().getIntExtra("image", 0);
         imageView.setImageResource(image);
@@ -89,11 +93,12 @@ public class NewDriverActivity extends FloatButtonActivity {
        });
 
 
-        SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
-        String name = userInfo.getString("account", "");
+//        SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
+//        String name = userInfo.getString("account", "");
 //        healthInfoTask = new HealthInfoTask();
 //        healthInfoTask.execute(name);
-
+        String name = getName();
+        textView.setText(name+": 体验中...");
         thread = new HealthThread(name,this);
         thread.start();
     }

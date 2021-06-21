@@ -1,5 +1,8 @@
 package com.hirain.app.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.github.clans.fab.FloatingActionButton;
 import com.hirain.app.R;
 import com.hirain.app.util.DialogUtil;
@@ -60,6 +63,12 @@ public class FloatButtonActivity extends BaseActivity{
     @OnClick(R.id.move)
     public void move(){
         DialogUtil.moveDialog(this);
+    }
+
+    public String getName(){
+        SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String account = sharedPreferences.getString("account", "");
+        return account;
     }
 
 }

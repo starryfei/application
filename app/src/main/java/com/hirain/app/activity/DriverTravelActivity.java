@@ -1,6 +1,5 @@
 package com.hirain.app.activity;
 
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,9 +56,9 @@ public class DriverTravelActivity extends FloatButtonActivity {
                     .positiveText("确定")
                     .show();
         }
-        SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
-        String name = userInfo.getString("account", "");
+        String name = getName();
         actionMenu.removeMenuButton(moveActionBtn);
+        textView.setText(name+": 体验中...");
 //        healthInfoTask = new HealthInfoTask();
 //        healthInfoTask.execute(name);
 

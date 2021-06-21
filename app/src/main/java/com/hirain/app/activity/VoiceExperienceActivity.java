@@ -1,6 +1,5 @@
 package com.hirain.app.activity;
 
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,8 +43,10 @@ public class VoiceExperienceActivity extends FloatButtonActivity {
         ButterKnife.bind(this);
         int image = getIntent().getIntExtra("image", 0);
         imageView.setImageResource(image);
-        SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
-        String name = userInfo.getString("account", "");
+//        SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
+//        String name = userInfo.getString("account", "");
+        String name = getName();
+        textView.setText(name+": 体验中...");
         thread = new HealthThread(name,this);
         thread.start();
 

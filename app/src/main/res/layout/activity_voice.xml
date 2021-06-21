@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:text="@string/experience_text"
             android:textSize="30dp"
+            android:id="@+id/text"
             android:fontFamily="@font/pingfang"
             android:textColor="@color/white"
             android:gravity="center_horizontal"
