@@ -1,6 +1,6 @@
 package com.hirain.app.task;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.util.Log;
@@ -19,17 +19,16 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import static com.hirain.app.common.Constants.APP_LOG;
-import static com.hirain.app.util.TimeUtil.getTime;
 
 @RequiresApi(api = Build.VERSION_CODES.Q)
 
 public class HealthThread extends Thread {
     private String name;
-    private Context context;
+    private Activity context;
     private Queue<String> queue = new LinkedList<>();
     private boolean isRun = true;
 
-    public HealthThread(String name, Context context) {
+    public HealthThread(String name, Activity context) {
         this.name = name;
         this.context = context;
         isRun = true;
@@ -61,11 +60,31 @@ public class HealthThread extends Thread {
 
                     } else if (StringUtils.equalsIgnoreCase(command1, "healthinfo_PWM")) {
                         parseHealthInfo(parse, name, "PWM");
+                    } else if (StringUtils.equalsIgnoreCase(command1, "exit_mod")) {
+                        exit();
                     }
+                }
+                try {
+                    sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
 
+    }
+
+    private void exit() {
+        String command = "{\n" +
+                "    \"command\": \"control\",\n" +
+                "    \"status\": \"stop\"\n" +
+                "}";
+        Log.d(APP_LOG,command);
+        new SendMessageTask(message -> {
+            Log.d(APP_LOG,message);
+        }).execute(command);
+        closeConnect();
+        context.finish();
     }
 
     public void setRun(boolean run) {
@@ -78,11 +97,8 @@ public class HealthThread extends Thread {
         subClient.initRecv();
         subClient.recMessage(message -> {
             if (StringUtils.isNoneBlank(message)) {
-//                boolean contains = queue.contains(message);
-//                if (!contains) {
-                    queue.add(message);
+                queue.add(message);
 
-//                }
             }
         });
     }
@@ -101,7 +117,6 @@ public class HealthThread extends Thread {
         DialogUtil.imageDialogTimer(context, bitmap);
         FileUtil.saveImage(context, name, bitmap);
         Log.i(APP_LOG, "save image");
-
 
     }
 

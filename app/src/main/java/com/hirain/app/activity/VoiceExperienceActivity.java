@@ -17,6 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.hirain.app.common.CommandConstants.EXIT_COMMAND;
 import static com.hirain.app.common.Constants.APP_LOG;
 
 @RequiresApi(api = Build.VERSION_CODES.Q)
@@ -63,14 +64,11 @@ public class VoiceExperienceActivity extends FloatButtonActivity {
 
     @OnClick(R.id.sign_out_btn)
     public void signOut() {
-        String command = "{\n" +
-                "    \"command\": \"control\",\n" +
-                "    \"status\": \"stop\"\n" +
-                "}";
-        Log.d(APP_LOG,command);
+
+        Log.d(APP_LOG,EXIT_COMMAND);
         new SendMessageTask(message -> {
            Log.d(APP_LOG,message);
-        }).execute(command);
+        }).execute(EXIT_COMMAND);
 
         try {
             thread.closeConnect();

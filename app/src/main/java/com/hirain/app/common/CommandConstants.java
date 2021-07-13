@@ -41,4 +41,9 @@ public class CommandConstants {
     public final static String ISLAND_RESET_COMMAND =  "{\n" +
             "    \"command\": \"island_reset\"\n" +
             "}";
+
+    public final static String  EXIT_COMMAND = "{\n" +
+            "    \"command\": \"control\",\n" +
+            "    \"status\": \"stop\"\n" +
+            "}";
 }
